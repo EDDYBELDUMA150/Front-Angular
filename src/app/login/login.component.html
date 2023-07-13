@@ -1,0 +1,40 @@
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Iniciar Sesión</h2>
+            <div class="profile-image"></div>
+        </div>
+        <form id="form" class="form">
+            <div class="form-control">
+                <label for="username">Usuario</label>
+                <input type="text" placeholder="Ingrese el usuario" id="username" />
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    Usuario obligatorio
+                </div>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message">Error message</small>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Contraseña</label>
+                <input type="password" placeholder="Ingrese la contraseña" id="password" />
+                <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                    Contraseña obligatoria.
+                </div>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="error-message">Error message</small>
+            </div>
+
+            <div>
+                <button type="submit" routerLink="/perfil-admin" routerLinkActive="activate">Iniciar sesión</button>
+                <script src="login.js"></script>
+                <button type="submit" routerLink="/home" routerLinkActive="active">Regresar</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+
+
