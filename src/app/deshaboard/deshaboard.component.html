@@ -1,7 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,9 +42,10 @@
                     <a ><i class="fa-solid fa-users"></i><span> Usuarios</span></a>
                     <a href="#"><i class="fa-solid fa-toolbox"></i><span> ROLES</span></a>
                     <a href="#"><i class="fa-sharp fa-solid fa-book"></i><span>Aprendizaje</span></a>
-                    <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Actividades</span></a>
-                    <a href="/recursos"><i class="fa-solid fa-pencil"></i><span>Recursos</span></a>
+                    <a href="perfil-admin/recursos"><i class="fa-solid fa-pencil"></i><span>Recursos</span></a>
                     <a href="#"><i class="fa-solid fa-trophy"></i><span>Administrar Actividad del Juego</span></a>
+                    <a href="#"><i class="fa-sharp fa-solid fa-book"></i><span>Ver Jugadores</span></a>
+                    <a href="#"><i class="fas fa-chalkboard-teacher"></i><span>Ver progreso jugadores</span></a>
                     <a href="#"><i class="fa-sharp fa-solid fa-bars-progress"></i><span>Estado de la App</span></a>
 
                 </nav>
@@ -53,13 +53,14 @@
             <main class="main col " id="catalina">
                 <div class="row justify-content-center align-content-center text-center">
                     <div #catalina  class="columna col-lg-6">
-                        
+                        <router-outlet ></router-outlet>
                     </div>
 
                 </div>
 
             </main>
         </div>
+        <app-footer></app-footer>
     </div>
 
 
@@ -70,6 +71,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/646c794df3.js"></script>
     
+    
 </body>
+
 
 </html>

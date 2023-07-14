@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Recursos } from './Recursos';
 
 @Component({
   selector: 'app-recursos',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./recursos.component.css']
 })
 export class RecursosComponent {
+
+
+
+  recursos: Recursos[] = []
 
 }

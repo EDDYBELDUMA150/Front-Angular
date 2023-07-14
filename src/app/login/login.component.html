@@ -7,7 +7,7 @@
         <form id="form" class="form">
             <div class="form-control">
                 <label for="username">Usuario</label>
-                <input type="text" placeholder="Ingrese el usuario" id="username" />
+                <input type="text" [ngModel]="usuarios.usu_correo" placeholder="Ingrese el usuario" id="usu_correo" />
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     Usuario obligatorio
                 </div>
@@ -18,7 +18,7 @@
 
             <div class="form-control">
                 <label for="password">Contraseña</label>
-                <input type="password" placeholder="Ingrese la contraseña" id="password" />
+                <input type="password" [ngModel]="usuarios.usu_contra" placeholder="Ingrese la contraseña" id="usu_contra" />
                 <div id="validationServerUsernameFeedback" class="invalid-feedback">
                     Contraseña obligatoria.
                 </div>
