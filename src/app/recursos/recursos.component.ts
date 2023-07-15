@@ -3,6 +3,7 @@ import { Recursos } from './Recursos';
 import { RecursosService } from './recursos.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-recursos',
   templateUrl: './recursos.component.html',
@@ -48,12 +49,11 @@ export class RecursosComponent {
   }
 
   update(){
-    
     this.recursosService.ModificarRecurso(this.formRecursos.value).subscribe(resp=>{
-        if(resp){
-          this.list();
-          this.formRecursos.reset();
-        }
+      if(resp){
+        this.list();
+        this.formRecursos.reset();
+      }
     });
   }
   delete(id: any){

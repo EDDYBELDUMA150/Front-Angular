@@ -12,39 +12,36 @@ export class RecursosService {
   constructor(private http:HttpClient) { }
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
   //URL DE LOS DISTINTOS METODOS
-  UrlBuscar='http://localhost:8080/ap//recursos/search/{id}';
-  UrlCrear= 'http://localhost:8080/api/recursos/create';
-  UrlEliminar='http://localhost:8080/api/recursos/delete/{id}';
-  UrlModificar='http://localhost:8080/api/recursos/update/{id}';
-  UrlListar='http://localhost:8080/api/recursos/list';
+  
+  UrlListar='http://localhost:8080/api/recursos';
   //METODOS PARA LLAMAR A LA PAI
   //METODO BUSCAR
   getRecursos():Observable<Recursos[]>{
-    return this.http.get<Recursos[]>(this.UrlBuscar).pipe(
+    return this.http.get<Recursos[]>(this.UrlListar+'/list').pipe(
       map(response => response as Recursos[])
     )
   }
 
   postRecursos(request:any):Observable<any>{
-    return this.http.post<any>(this.UrlCrear, request).pipe(
+    return this.http.post<any>(this.UrlListar + '/create', request).pipe(
       map(response => response as Recursos[])
     )
 
   }
-  EliminarRecursos(request:any):Observable<any>{
-    return this.http.delete<any>(this.UrlEliminar).pipe(
+  EliminarRecursos(id:number):Observable<any>{
+    return this.http.delete<any>(this.UrlListar+'/delete/'+id).pipe(
       map(response => response as Recursos[])
     )
 
   }
   ModificarRecurso(request:any):Observable<any>{
-    return this.http.post<any>(this.UrlModificar, request).pipe(
+    return this.http.post<any>(this.UrlListar+'/update', request).pipe(
       map(response => response as Recursos[])
     )
 
   }
   ListarRecursos(): Observable<Recursos[]> {
-    return this.http.get<Recursos[]>(this.UrlListar).pipe(
+    return this.http.get<Recursos[]>(this.UrlListar+'/list').pipe(
       map(response => response as Recursos[])
     );
   }
