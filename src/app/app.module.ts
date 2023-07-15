@@ -14,7 +14,7 @@ import { ActividadesComponent } from './actividades/actividades.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { NivelesComponent } from './niveles/niveles.component';
 import { FormComponent } from './recursos/form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -36,6 +36,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
