@@ -17,6 +17,9 @@ import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EstadoAppComponent } from './estado-app/estado-app.component';
+import { AdminActivComponent } from './admin-activ/admin-activ.component';
+import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
+import { ProgresoComponent } from './progreso/progreso.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { EstadoAppComponent } from './estado-app/estado-app.component';
     RecursosComponent,
     NivelesComponent,
     FormComponent,
-    EstadoAppComponent
+    EstadoAppComponent,
+    AdminActivComponent,
+    VerUserRolComponent,
+    ProgresoComponent
   ],
   imports: [
     BrowserModule,
