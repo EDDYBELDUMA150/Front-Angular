@@ -6,6 +6,7 @@ import { DeshaboardComponent } from './deshaboard/deshaboard.component';
 import { HomeComponent } from './home/home.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { FormComponent } from './recursos/form.component';
+import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -22,7 +23,13 @@ const routes: Routes = [
     {
       path:'recursos',
       component: RecursosComponent
-    
+      
+       
+    },
+    {
+      path:'aprendizaje',
+      component: AprendizajeComponent
+      
        
     },
     
