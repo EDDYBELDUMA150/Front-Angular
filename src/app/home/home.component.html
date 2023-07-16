@@ -1,27 +1,16 @@
 <div>
-  <app-header> </app-header>
-<div id="banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-12-medium">
-
-          <!-- Banner Copy -->
-            <p>We do something really useful, important, and unique. Learn all about it here ...</p>
-            <li routerLinkActive="active" class="button-large">
-              <a routerLink="/login" class="button-large">ACCEDER</a>
-            </li>
-            
-
+  <body style="background-image: url(assets/imagenes/header.jpg); 
+background-repeat: no-repeat;">
+    <div class="container-form sign-up" style="backdrop-filter: blur(8px);">
+        <div class="welcome-back">
+            <div class="message">
+                <h2>Bienvenido a Yo aprendo con Leo</h2>
+                <p>Si ya tienes una cuenta por favor inicia sesión aquí</p>
+                <button class="sign-up-btn"routerLink="/login" >Iniciar Sesion</button>
+                <p></p>
+                <button class="sign-up-btn"routerLink="/nosotros" >Sobre Nosotros</button>
+            </div>
         </div>
-        <div class="col-6 col-12-medium imp-medium">
-
-          <!-- Banner Image -->
-            <a href="#" class="bordered-feature-image"><img src="assets/imagenes/logo de la app.jpg" alt="" /></a>
-
-        </div>
-      </div>
     </div>
-  </div> m  
-<app-footer></app-footer>
-
+</body>
 </div>

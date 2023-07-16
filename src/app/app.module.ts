@@ -16,7 +16,7 @@ import { NivelesComponent } from './niveles/niveles.component';
 import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { EstadoAppComponent } from './estado-app/estado-app.component';
+//import { EstadoAppComponent } from './estado-app/estado-app.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +31,8 @@ import { EstadoAppComponent } from './estado-app/estado-app.component';
     ActividadesComponent,
     RecursosComponent,
     NivelesComponent,
-    FormComponent,
-    EstadoAppComponent
+    FormComponent
+   // EstadoAppComponent
   ],
   imports: [
     BrowserModule,
