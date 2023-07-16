@@ -24,6 +24,13 @@ export class DeshaboardComponent implements AfterViewInit {
       placement: 'bottom',
     });
   }
+  title:string = "ADMINISTRACION ";
+  fecha:Date=new Date();
+
+ 
+
+
+    
 }
 
 

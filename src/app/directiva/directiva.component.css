@@ -1,0 +1,87 @@
+.white{
+    color:white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.titulopag{
+    color: white;
+    margin-left: 20px; 
+    font-size: 100%; 
+    width: 220px;
+}
+.titulodis{
+    position: relative; 
+    margin-left: 68%; 
+    top: -56px; 
+    font-size: 100%; 
+    color: #000000; 
+    width: 250px;
+}
+.fecha{
+    margin-top: 5px;
+    margin-left: 32%; 
+    font-size: 100%; 
+    color: #000000;; 
+    width: 250px;
+}
+.imgLogin{
+    position: relative; 
+    margin-left: 96%; 
+    top: -108px;
+    width: 30px; 
+    height: 30px; 
+    border-radius: 40% ;
+    background-color: #2c5974;
+}
+.posicionUsu{
+    position: relative;
+    top: 32%;   
+    left: 40%;
+}
+.posicionCli{
+    position: relative;
+    top: 32%;   
+    left: 58%;
+}
+.posicionPed{
+    position: relative;
+    top: 32%;   
+    left: 73%;
+}
+.posicionProd{
+    position: relative;
+    top: 32%;   
+    left: 88%;
+}
+.posicionNos{
+    position: relative;
+    top: 32%;   
+    left: 105%;
+}
+.imgIni{
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    top: 32%;   
+    left: 0.8%;
+}
+.imgNav{
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    top: 20%;   
+    left: -28%;
+}
+.imgCli{
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    top: 28%;   
+    left: -28%;
+}
+.posicionCerrar{
+    position: relative;
+    top: 32%;   
+    left: 120%;
+    text-decoration:underline white;
+}
+

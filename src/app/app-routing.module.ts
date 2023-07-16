@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { FormComponent } from './recursos/form.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
+import { DirectivaComponent } from './directiva/directiva.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -16,6 +17,9 @@ const routes: Routes = [
   },
   {path : 'login',
   component : LoginComponent
+  },
+  {path : 'directiva',
+  component : DirectivaComponent
   },
   {path : 'perfil-admin',
   component : DeshaboardComponent,
