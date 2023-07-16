@@ -8,6 +8,7 @@ import { RecursosComponent } from './recursos/recursos.component';
 import { FormComponent } from './recursos/form.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { DirectivaComponent } from './directiva/directiva.component';
+import { EstadoAppComponent } from './estado-app/estado-app.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -21,6 +22,9 @@ const routes: Routes = [
   {path : 'directiva',
   component : DirectivaComponent
   },
+  {path : 'estado-app',
+  component : EstadoAppComponent
+  },
   {path : 'perfil-admin',
   component : DeshaboardComponent,
   children:[
@@ -33,6 +37,12 @@ const routes: Routes = [
     {
       path:'aprendizaje',
       component: AprendizajeComponent
+      
+       
+    },
+    {
+      path:'estado-app',
+      component: EstadoAppComponent
       
        
     },
