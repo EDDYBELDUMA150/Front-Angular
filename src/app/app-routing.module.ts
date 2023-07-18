@@ -8,15 +8,16 @@ import { RecursosComponent } from './recursos/recursos.component';
 import { FormComponent } from './recursos/form.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { DirectivaComponent } from './directiva/directiva.component';
-<<<<<<< HEAD
-import { EstadoAppComponent } from './estado-app/estado-app.component';
+
+
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { ProgresoComponent } from './progreso/progreso.component';
-=======
+
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 //import { EstadoAppComponent } from './estado-app/estado-app.component';
->>>>>>> a4a8ac35861da80656b959eff878005f852dd71f
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch: 'full'},
@@ -46,6 +47,12 @@ const routes: Routes = [
       
     },
     {
+      path:'usuarios',
+      component: UsuariosComponent
+      
+      
+    },
+    {
       path:'aprendizaje',
       component: AprendizajeComponent
       
@@ -56,8 +63,8 @@ const routes: Routes = [
       //component: EstadoAppComponent
       
        
-<<<<<<< HEAD
-    },
+   // },
+  
     {
       path:'admin-activ',
       component: AdminActivComponent
@@ -76,9 +83,9 @@ const routes: Routes = [
       
        
     },
-=======
-   // },
->>>>>>> a4a8ac35861da80656b959eff878005f852dd71f
+
+   //},
+
     
   ]
   },
