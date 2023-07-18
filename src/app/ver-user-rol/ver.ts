@@ -4,8 +4,12 @@ export class Usuarios {
     usu_correo: string = "";
     nombre_rol: string = "";
 }
-export class Roles{
-    nombre_rol: String="";
+export class Usuarios2 {
+    id_usuario: number = 0;
+    usu_nombre: string = "";
+    usu_correo: string = "";
+    nombre_rol: string = "";
 }
+
   
 

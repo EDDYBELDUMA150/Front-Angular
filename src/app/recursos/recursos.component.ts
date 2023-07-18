@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Recursos } from './Recursos';
 import { RecursosService } from './recursos.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, finalize } from 'rxjs';
+import { Recursos } from '../modelo/Recursos';
 
 @Component({
   selector: 'app-recursos',
@@ -14,7 +14,6 @@ export class RecursosComponent {
   constructor(private recursosService: RecursosService) { }
 
   recursos: Recursos[] = [];
-  public recurso: Recursos = new Recursos()
   formRecursos: FormGroup = new FormGroup({});
   isupdate: boolean = false;
 
@@ -67,26 +66,7 @@ export class RecursosComponent {
   }
 
   save(): void {
-    const recursos: Recursos = this.formRecursos.value;
-    const formData = new FormData();
-
-    formData.append('id_recurso', recursos.id_recurso.toString());
-    formData.append('rec_enlaces', recursos.rec_enlaces);
-
-    if (this.fileInput && this.fileInput.nativeElement.files && this.fileInput.nativeElement.files.length > 0) {
-      const file = this.fileInput.nativeElement.files[0];
-      this.convertToBase64(file).subscribe(base64 => {
-        formData.append('rec_imagenes', base64);
-        this.uploadFiles(formData);
-      });
-    }
-
-    this.recursosService.postRecursos(formData).subscribe(resp => {
-      if (resp) {
-        this.list();
-        this.formRecursos.reset();
-      }
-    });
+    
   }
 
   convertToBase64(file: File): Observable<string> {

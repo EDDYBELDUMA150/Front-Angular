@@ -19,5 +19,11 @@ export class VerUserRolService {
       map(response => response as Usuarios[])
     );
   }
+
+  ListarJugador():Observable<Usuarios[]> {
+    return this.http.get<Usuarios[]>(this.apiUrl+'/usuarios/list/Jugador').pipe(
+      map(response => response as Usuarios[])
+    );
+  }
   
 }

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,10 +16,12 @@ import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EstadoAppComponent } from './estado-app/estado-app.component';
+import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { ProgresoComponent } from './progreso/progreso.component';
-import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+
 
 
 @NgModule({
@@ -37,11 +38,15 @@ import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.c
     RecursosComponent,
     NivelesComponent,
     FormComponent,
-    EstadoAppComponent,
     AdminActivComponent,
     VerUserRolComponent,
     ProgresoComponent,
-    ScrolldeshaboardComponent
+    ScrolldeshaboardComponent,
+    UsuariosComponent,
+    FormComponent,
+    EstadoAppComponent
+  
+
   ],
   imports: [
     BrowserModule,

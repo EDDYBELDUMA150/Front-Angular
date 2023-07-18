@@ -33,7 +33,7 @@ export class AdminActivService {
   
 
   //CRUD PRINCIPAL DE LA ACTIVIDAD
-  CrearApctividad(request:any):Observable<any>{
+  CrearActividad(request:any):Observable<any>{
     return this.http.post<any>(this.actividadesUrl + '/create', request).pipe(
       map(response => response as Actividad[])
     )

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { VerUserRolService } from './ver-user-rol.service';
 import { FormGroup } from '@angular/forms';
-import { Usuarios } from './ver';
+import { Usuarios, Usuarios2 } from './ver';
 
 
 @Component({
@@ -11,7 +11,8 @@ import { Usuarios } from './ver';
 })
 export class VerUserRolComponent {
   constructor(private usuariosService: VerUserRolService) { }
-  usuarios: Usuarios[] = [];
+   admin: Usuarios[] = [];
+   jugador: Usuarios[] = [];
   
   formAprendizaje: FormGroup = new FormGroup({});
 
@@ -19,11 +20,19 @@ export class VerUserRolComponent {
   selectedItemId: number | undefined;
   ngOnInit(): void {
       this.list();
+      this.list2();
   }
   list(){
     this.usuariosService.ListarAdmnin().subscribe(resp=>{
          if(resp){
-          this.usuarios=resp;
+          this.admin=resp;
+         }
+    });
+  }
+  list2(){
+    this.usuariosService.ListarJugador().subscribe(resp=>{
+         if(resp){
+          this.jugador=resp;
          }
     });
   }

@@ -11,6 +11,10 @@ import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { ProgresoComponent } from './progreso/progreso.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { EstadoAppComponent } from './estado-app/estado-app.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
+
+////
 
 
 const routes: Routes = [
@@ -39,6 +43,12 @@ const routes: Routes = [
       
     },
     {
+      path:'usuarios',
+      component: UsuariosComponent
+      
+      
+    },
+    {
       path:'aprendizaje',
       component: AprendizajeComponent
       
@@ -63,13 +73,21 @@ const routes: Routes = [
       
        
     },
+
     {
       path:'estado-app',
       component: EstadoAppComponent
       
        
     },
+    {
+      path:'app-scrolldeshaboard',
+      component: ScrolldeshaboardComponent
+    }
 
+
+
+ 
 
     
   ]

@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Recursos } from '../modelo/Recursos';
 import { tipoAprendizaje } from '../modelo/TipoAprendizaje';
 import { Actividad } from '../modelo/Actividad';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-admin-activ',
@@ -16,13 +17,16 @@ export class AdminActivComponent {
   recursos: Recursos[] = [];
   aprendizaje: tipoAprendizaje[] = [];
   formactiv: FormGroup = new FormGroup({});
-  
+  selectedItemId: number=0;
+  //Recupera los daatos del combo box seleccionado
+  selectedRecid:number=0;
+  selectedAid:number=0;
 
   isupdate: boolean=false;
-  selectedItemId: number | undefined;
   constructor(private adminActivService: AdminActivService) {}
 
   ngOnInit(): void {
+    this.obtenerAprendizaje();
     this.cargarActividades();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();
@@ -40,6 +44,17 @@ export class AdminActivComponent {
        
      });
 
+  }
+
+  obtenerAprendizaje() {
+    this.adminActivService.ListarRecursos().subscribe(
+      (response: any[]) => {
+        this.aprendizaje = response; // Asigna la lista de roles a la variable roles en el componente
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   cargarActividades(): void {
@@ -78,28 +93,36 @@ export class AdminActivComponent {
   }
 
 
-  save() {
-    const id_recursor = new Recursos();
-    const id_tipo_apren = new tipoAprendizaje();
+  savee() {
+    if (this.formactiv.valid) {
+      const actividad = this.formactiv.value;
+      //console.log(" id de rol: "+usuario.id_rol);
+      const id_tipo_apren = actividad.id_tipo_apren; // Obtén el id_rol del formulario
+       
+      //obteber recurso del fromulario
+      const  id_recurso=actividad.id_recurso;
+
   
-    const actividad = new Actividad(
-      this.formactiv.value.id_activ,
-      this.formactiv.value.activ_nombre,
-      this.formactiv.value.activ_descripcion,
-      this.formactiv.value.act_dificultad,
-      this.formactiv.value.act_puntaje_max,
-      this.formactiv.value.act_puntaje_min,
-      this.formactiv.value.act_puntaje_alcanzado,
-      this.formactiv.value.act_estado,
+      // Asigna el id_recurdo y id_aprendizaje  al objeto actividad
+  
+      actividad.aprendizaje = new tipoAprendizaje (id_tipo_apren,"recurso",0);;
+      actividad.recursos= new Recursos(id_recurso,"Leer");;
+      //console.log("despues del rol");
       
-    );
   
-    this.adminActivService.CrearApctividad(actividad).subscribe(resp => {
-      if (resp) {
-        this.cargarActividades();
-        this.formactiv.reset();
-      }
-    });
+  
+      this.adminActivService.CrearActividad(actividad).subscribe(
+        (resp) => {
+          this.cargarActividades;
+          this.formactiv.reset();
+          Swal.fire('Actividad Registrado', 'Actividad registrado con éxito', 'success');
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire('Error', 'Ocurrió un error al registrar la actividad', 'error');
+        }
+      );
+    }
   }
   
   
