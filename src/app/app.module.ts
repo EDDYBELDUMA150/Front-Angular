@@ -16,14 +16,12 @@ import { NivelesComponent } from './niveles/niveles.component';
 import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-<<<<<<< HEAD
 import { EstadoAppComponent } from './estado-app/estado-app.component';
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { ProgresoComponent } from './progreso/progreso.component';
-=======
-//import { EstadoAppComponent } from './estado-app/estado-app.component';
->>>>>>> a4a8ac35861da80656b959eff878005f852dd71f
+import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
+
 
 @NgModule({
   declarations: [
@@ -38,16 +36,12 @@ import { ProgresoComponent } from './progreso/progreso.component';
     ActividadesComponent,
     RecursosComponent,
     NivelesComponent,
-<<<<<<< HEAD
     FormComponent,
     EstadoAppComponent,
     AdminActivComponent,
     VerUserRolComponent,
-    ProgresoComponent
-=======
-    FormComponent
-   // EstadoAppComponent
->>>>>>> a4a8ac35861da80656b959eff878005f852dd71f
+    ProgresoComponent,
+    ScrolldeshaboardComponent
   ],
   imports: [
     BrowserModule,

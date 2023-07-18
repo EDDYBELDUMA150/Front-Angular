@@ -22,12 +22,12 @@ export class RecursosService {
     )
   }
 
-  postRecursos(request:any):Observable<any>{
-    return this.http.post<any>(this.UrlListar + '/create', request).pipe(
-      map(response => response as Recursos[])
-    )
-
+  postRecursos(request: FormData): Observable<any> {
+    return this.http.post<any>(this.UrlListar + '/create', request);
   }
+  
+  
+  
   EliminarRecursos(id:number):Observable<any>{
     return this.http.delete<any>(this.UrlListar+'/delete/'+id).pipe(
       map(response => response as Recursos[])

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Aprendizaje } from './aprendizaje';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AprendizajeService } from './aprendizaje.service';
+import { tipoAprendizaje } from '../modelo/TipoAprendizaje';
 
 @Component({
   selector: 'app-aprendizaje',
@@ -11,7 +11,7 @@ import { AprendizajeService } from './aprendizaje.service';
 export class AprendizajeComponent {
 
   constructor(private aprendizajeService:AprendizajeService){}
-  aprendizaje: Aprendizaje[] = []
+  aprendizaje: tipoAprendizaje[] = []
  
   formAprendizaje: FormGroup = new FormGroup({});
 
