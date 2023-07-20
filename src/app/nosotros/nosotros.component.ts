@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { datosChicos } from './nosotros.json';
+import { datosChicos } from './nosotros';
 
 @Component({
   selector: 'app-nosotros',
@@ -7,7 +7,7 @@ import { datosChicos } from './nosotros.json';
   styleUrls: ['./nosotros.component.css']
 })
 export class NosotrosComponent implements OnInit{
-  titulo=";>";
+  titulo="app";
   nosotros = datosChicos;
   
   constructor(){

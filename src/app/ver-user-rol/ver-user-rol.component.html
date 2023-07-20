@@ -1,1 +1,48 @@
-<p>VER LISTA DE USUARIOS POR ROL</p>
+<h1 style="color: rgb(1, 1, 1);">Usuarios Administradores</h1>
+<div class="col-md-12 p-2">
+  <table class="table mt-2 table-bordered">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>CORREO</th>
+        <th>ROL</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of admin">
+        <td>{{item.id_usuario}}</td>                         
+        <td>{{item.usu_nombre}}</td>
+        <td>{{item.usu_correo}}</td>
+        <td>Admin</td>        
+        <th>Activo</th>
+      </tr>
+    </tbody>    
+  </table>
+</div>
+
+<h1 style="color: rgb(1, 1, 1);">Usuarios Jugadores</h1>
+<div class="col-md-12 p-2">
+  <table class="table mt-2 table-bordered">
+    <thead class="table-primary">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>CORREO</th>
+        <th>ROL</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item2 of jugador">
+        <td>{{item2.id_usuario}}</td>                         
+        <td>{{item2.usu_nombre}}</td>
+        <td>{{item2.usu_correo}}</td>
+        <td>Jugador</td>        
+        <th>Activo</th>
+      </tr>
+    </tbody>    
+  </table>
+</div>
+

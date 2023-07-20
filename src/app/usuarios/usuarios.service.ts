@@ -17,13 +17,14 @@ export class UsuariosService {
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'})
 
   UrlListar='http://localhost:8080/api/usuarios';
+  UrListarR='http://localhost:8080/api/roles';
 //////////////////////////////////////////////////////
 
 
   UrlListarRol='http://localhost:8080/api';
 
   obtenerRoles(): Observable<Roles[]> {
-    return this.http.get<Roles[]>(this.UrlListarRol+'/roles').pipe(
+    return this.http.get<Roles[]>(this.UrListarR+'/list').pipe(
       map(response => response as Roles[])
     )
   }

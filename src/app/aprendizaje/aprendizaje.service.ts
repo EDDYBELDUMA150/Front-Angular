@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Aprendizaje } from './aprendizaje';
+import { tipoAprendizaje } from '../modelo/TipoAprendizaje';
 
 @Injectable({
   providedIn: 'root'
@@ -13,35 +13,35 @@ export class AprendizajeService {
   UrlBuscar='';
 
   //METODOS PARA EL CRUD
-  getAprndizaje():Observable<Aprendizaje[]>{
-    return this.http.get<Aprendizaje[]>(this.UrlListar+'/list').pipe(
-      map(response => response as Aprendizaje[])
+  getAprndizaje():Observable<tipoAprendizaje[]>{
+    return this.http.get<tipoAprendizaje[]>(this.UrlListar+'/list').pipe(
+      map(response => response as tipoAprendizaje[])
     )
   }
 
   postAprendizaje(request:any):Observable<any>{
     return this.http.post<any>(this.UrlListar + '/create', request).pipe(
-      map(response => response as Aprendizaje[])
+      map(response => response as tipoAprendizaje[])
     )
 
   }
   EliminarAprendizaje(id:number):Observable<any>{
     return this.http.delete<any>(this.UrlListar+'/delete/'+id).pipe(
-      map(response => response as Aprendizaje[])
+      map(response => response as tipoAprendizaje[])
     )
 
   }
   ModificarAprendizaje(request: any): Observable<any> {
     const id = request.id_tipo_apren;
     return this.http.put<any>(`${this.UrlListar}/update/${id}`, request).pipe(
-      map(response => response as Aprendizaje[])
+      map(response => response as tipoAprendizaje[])
     );
   }
   
   
-  ListarAprendizaje(): Observable<Aprendizaje[]> {
-    return this.http.get<Aprendizaje[]>(this.UrlListar+'/list').pipe(
-      map(response => response as Aprendizaje[])
+  ListarAprendizaje(): Observable<tipoAprendizaje[]> {
+    return this.http.get<tipoAprendizaje[]>(this.UrlListar+'/list').pipe(
+      map(response => response as tipoAprendizaje[])
     );
   }
   

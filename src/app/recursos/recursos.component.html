@@ -72,18 +72,21 @@
                     <input type="text" class="form-control" formControlName="rec_enlaces">
                   </div>
               </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">PDFS</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="rec_pdfs">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">IMAGENES</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="rec_imagenes">
-                  </div>
-              </div>
+            
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">PDFS</label>
+                <div class="col-sm-10">
+                    <input type="file" #fileInput class="form-control-file" formControlName="rec_pdfs">
+                </div>
+            </div>
+            
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">IMAGENES</label>
+                <div class="col-sm-10">
+                    <input type="file" #fileInput class="form-control-file" formControlName="rec_imagenes">
+                </div>
+            </div>
+            
             </form>
       </div>
       <div class="modal-footer">

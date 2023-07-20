@@ -15,10 +15,10 @@ export class UsuariosComponent {
   constructor(private usuariosService:UsuariosService){}
   usuarios: Usuarios[] = []
 
-/////////////////////////////////////
-selectedRoleId: number=0;
+   /////////////////////////////////////
+   selectedRoleId: number=0;
 
-///////////////////////////
+   ///////////////////////////
   roles: Roles[] = [];
 
 
