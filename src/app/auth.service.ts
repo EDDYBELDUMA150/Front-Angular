@@ -7,32 +7,28 @@ import { Observable, map } from 'rxjs';
 })
 export class AuthService {
 
-  private listarAdmin: string = 'http://localhost:8080/api/usuarios/list/admin';
-  private listarJugador: string = 'http://localhost:8080/api/usuarios/list/jugador';
 
-  constructor(private http: HttpClient) { }
+  
+  private rol: string="";
 
-  // Método para obtener el rol del usuario autenticado
-  getRolAdmin(): Observable<string> {
-    return this.http.get<string>(`${this.listarAdmin}`);
-  }
-  getRolJugador(): Observable<string> {
-    return this.http.get<string>(`${this.listarAdmin}`);
+  constructor() {}
+
+  setRol(rol: string) {
+    this.rol = rol;
   }
 
-  // Método para verificar si el usuario es Administrador
-  esAdmin(): Observable<boolean> {
-    return this.getRolAdmin().pipe(
-      map(rol => rol === 'Administrador')
-    );
+  getRol(): string {
+    return this.rol;
   }
 
-  // Método para verificar si el usuario es Jugador
-  esJugador(): Observable<boolean> {
-    return this.getRolAdmin().pipe(
-      map(rol => rol === 'Jugador')
-    );
+  esAdmin(): boolean {
+    return this.rol === 'Administrador';
   }
+
+  esVendedor(): boolean {
+    return this.rol === 'Vendedor';
+  }
+ 
 
 }
 
