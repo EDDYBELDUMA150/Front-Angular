@@ -19,8 +19,9 @@ import { EstadoAppComponent } from './estado-app/estado-app.component';
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
-import { ProgresoComponent } from './progreso/progreso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 
 
@@ -40,11 +41,12 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     FormComponent,
     AdminActivComponent,
     VerUserRolComponent,
-    ProgresoComponent,
     ScrolldeshaboardComponent,
     UsuariosComponent,
     FormComponent,
-    EstadoAppComponent
+    EstadoAppComponent,
+    VentanaJugadorComponent,
+    ProgressBarComponent
   
 
   ],

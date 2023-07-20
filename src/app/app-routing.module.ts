@@ -8,11 +8,12 @@ import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { DirectivaComponent } from './directiva/directiva.component';
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
-import { ProgresoComponent } from './progreso/progreso.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { EstadoAppComponent } from './estado-app/estado-app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
+import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 ////
 
@@ -67,23 +68,14 @@ const routes: Routes = [
       
        
     },
-    {
-      path:'progreso',
-      component: ProgresoComponent
-      
-       
-    },
 
     {
       path:'estado-app',
-      component: EstadoAppComponent
+      component: EstadoAppComponent,
       
        
-    },
-    {
-      path:'app-scrolldeshaboard',
-      component: ScrolldeshaboardComponent
     }
+    
 
 
 
@@ -91,6 +83,20 @@ const routes: Routes = [
 
     
   ]
+  },
+  {path : 'ventanaj',
+  component : VentanaJugadorComponent,
+       children:[
+       {   
+          path: 'scroll',
+          component: ScrolldeshaboardComponent
+       },
+       {   
+        path: 'progress',
+        component: ProgressBarComponent
+      }
+     ]
+
   },
   
 

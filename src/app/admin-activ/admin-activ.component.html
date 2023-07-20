@@ -29,8 +29,9 @@
         <td>{{item.act_puntaje_min}}</td>
         <td>{{item.act_puntaje_alcanzado}}</td>
         <td>{{item.act_estado}}</td>
-        <td>{{item.aprendizaje.id_tipo_apren}}</td>
         <td>{{item.recursos.id_recurso}}</td>
+        <td>{{item.aprendizaje.id_tipo_apren}}</td>
+       
         
         <td>
           <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
@@ -122,24 +123,26 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-sm-2 col-form-label">Aprendizaje</label>
+                <div class="col-sm-10">
+                    <select   class="form-control" formControlName="id_recurso">
+                        <option value="" selected disabled>Seleccione un Aprendizaje</option>
+                        <option *ngFor="let aprendizaje of aprendizaje" [value]="aprendizaje.id_tipo_apren">{{aprendizaje.tapr_nombre }}</option>
+                      </select>
+                  </div>
+           
+          </div>
+              <div class="form-group">
                 <label class="col-sm-2 col-form-label">Recursos</label>
                 <div class="col-sm-10">
                     <select   class="form-control" formControlName="id_recurso">
                         <option value="" selected disabled>Seleccione un recurso</option>
-                        <option *ngFor="let recurso of recursos" [value]="recurso.id_recurso">{{recurso.rec_nombre }}</option>
+                        <option *ngFor="let recurso of recursos" [value]="recurso.id_recurso">{{recurso.id_recurso }}</option>
                       </select>
                   </div>
               </div> 
-                  <div class="form-group">
-                    <label class="col-sm-2 col-form-label">Aprendizaje</label>
-                    <div class="col-sm-10">
-                        <select   class="form-control" formControlName="id_recurso">
-                            <option value="" selected disabled>Seleccione un Aprendizaje</option>
-                            <option *ngFor="let aprendizaje of aprendizaje" [value]="aprendizaje.id_tipo_apren">{{aprendizaje.tapr_nombre }}</option>
-                          </select>
-                      </div>
-               
-              </div>
+                 
+              
             
              
 
