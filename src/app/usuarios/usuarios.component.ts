@@ -85,7 +85,7 @@ savee() {
 
     // Asigna el id_rol al objeto usuario
 
-    usuario.roles = new Roles(idRol,"admin");;
+    usuario.roles = new Roles(idRol,"admin");
     console.log("despues del rol");
 
 
@@ -125,6 +125,17 @@ savee() {
 
 
   update(){
+
+    const usuario = this.formUsuarios.value;
+    //console.log(" id de rol: "+usuario.id_rol);
+    const idRol = usuario.id_rol; // Obtén el id_rol del formulario
+
+
+    // Asigna el id_rol al objeto usuario
+
+    usuario.roles = new Roles(idRol,"admin");
+
+
     this.usuariosService.ModificarUsuarios(this.formUsuarios.value).subscribe(resp=>{
       if(resp){
         this.list();
@@ -132,6 +143,37 @@ savee() {
       }
     });
   }
+
+
+
+  updatee() {
+    if (this.formUsuarios.valid) {
+      const usuario = this.formUsuarios.value;
+      const idRol = usuario.id_rol;
+      //console.log(" id de rol: "+usuario.id_rol);
+  
+      usuario.roles = new Roles(idRol,"");
+
+     // console.log("despues del rol ");
+      this.usuariosService.ModificarUsuarios(usuario).subscribe(
+        (resp) => {
+          this.list();
+          this.formUsuarios.reset();
+          Swal.fire('Usuario Actualizado', 'Usuario actualizado con éxito', 'success');
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
+        }
+      );
+    }
+  }
+  
+
+
+
+
+
 
 
   delete(id: any){
