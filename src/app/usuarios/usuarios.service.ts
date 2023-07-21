@@ -65,12 +65,25 @@ export class UsuariosService {
     )
 
   }
+  ////////////////////////////////////////
   ModificarUsuarios(request:any):Observable<any>{
     return this.http.post<any>(this.UrlListar+'/update', request).pipe(
       map(response => response as Usuarios[])
     )
 
   }
+  updateUsuario(userId: number, request: any): Observable<any> {
+    return this.http.put<any>(`${this.UrlListar}/update/${userId}`, request).pipe(
+      map(response => response as Usuarios)
+    );
+  }
+
+
+
+
+
+
+  ///////////////////////////////////////////////////
   ListarUsuarios(): Observable<Usuarios[]> {
     return this.http.get<Usuarios[]>(this.UrlListar+'/list').pipe(
       map(response => response as Usuarios[])

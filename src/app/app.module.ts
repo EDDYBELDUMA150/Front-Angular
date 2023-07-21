@@ -15,7 +15,7 @@ import { NivelesComponent } from './niveles/niveles.component';
 import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { EstadoAppComponent } from './estado-app/estado-app.component';
+
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
@@ -43,8 +43,9 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     ProgresoComponent,
     ScrolldeshaboardComponent,
     UsuariosComponent,
-    FormComponent,
-    EstadoAppComponent
+    FormComponent
+    
+   
   
 
   ],
