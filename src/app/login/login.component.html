@@ -1,40 +1,45 @@
-<body>
+<div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%;height: 700px;">
     <div class="container">
-        <div class="header">
-            <h2>Iniciar Sesión</h2>
-            <div class="profile-image"></div>
+        <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-12 col-xl-10">
+                <div class="card shadow-lg o-hidden border-0 my-5">
+                    <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-flex">
+                                <div class="flex-grow-1 bg-login-image" style="background-image: url('assets/imagenes/logoloroSS.jpg');  width: 300px; height: 360px;"></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h4 class="text-dark mb-4"> Bienvenido!</h4>
+                                    </div>
+                                    <form class="user" [formGroup]="myForm">
+                                        <div class="mb-3" >
+                                            <input id="exampleInputEmail" class="form-control form-control-user"formControlName="email" name="a" [(ngModel)]="modeloUsuario.usu_correo" [class.is-invalid]="f.email.touched && f.email.errors" type="email" aria-describedby="emailHelp" placeholder="Correo Electronico" required />
+                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                Direccion de correo electronico obligatorio.
+                                              </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input id="exampleInputPassword" class="form-control form-control-user"formControlName="password" name="b" [(ngModel)]="modeloUsuario.usu_contra" [class.is-invalid]="f.password.touched && f.password.errors" type="password" placeholder="Contraseña" required/>
+                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                                                Contraseña obligatoria.
+                                              </div>
+                                            </div>
+                                        
+                                        <div class="mb-3">
+                                            <div class="custom-control custom-checkbox small"></div>
+                                        </div><button class="btn btn-primary d-block btn-user w-100 .message button" type="submit" (click)="login(modeloUsuario)">Iniciar Sesión</button>
+                                        <hr />
+                                        <hr />
+                                    </form>
+                                    <div class="text-center"><a class="small" routerLink="/not-found"  style="color: #4a4aee;">Has olvidado tu contraseña?</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <form id="form" class="form">
-            <div class="form-control">
-                <label for="username">Usuario</label>
-                <input type="text" [ngModel]="usuarios.usu_correo" placeholder="Ingrese el usuario" id="usu_correo" />
-                <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                    Usuario obligatorio
-                </div>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small class="error-message">Error message</small>
-            </div>
-
-            <div class="form-control">
-                <label for="password">Contraseña</label>
-                <input type="password" [ngModel]="usuarios.usu_contra" placeholder="Ingrese la contraseña" id="usu_contra" />
-                <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                    Contraseña obligatoria.
-                </div>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small class="error-message">Error message</small>
-            </div>
-
-            <div>
-                <button type="submit" routerLink="/perfil-admin" routerLinkActive="activate">Iniciar sesión</button>
-                <script src="login.js"></script>
-                <button type="submit" routerLink="/home" routerLinkActive="active">Regresar</button>
-            </div>
-        </form>
     </div>
-</body>
-
-
-
+</div>
