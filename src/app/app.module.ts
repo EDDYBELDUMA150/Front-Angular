@@ -12,9 +12,12 @@ import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { ActividadesComponent } from './actividades/actividades.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { NivelesComponent } from './niveles/niveles.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+
 
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
@@ -44,12 +47,19 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     ScrolldeshaboardComponent,
     UsuariosComponent,
     FormComponent,
+
     
    FooterComponent,
 
    
     VentanaJugadorComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+
+
+    //EstadoAppComponent,
+    VentanaJugadorComponent,
+    ProgressBarComponent,
+    NosotrosComponent
 
   
 
