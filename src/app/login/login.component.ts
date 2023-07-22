@@ -43,15 +43,18 @@ export class LoginComponent {
 login(modeloUsu:Usuarios){
   if(modeloUsu.usu_correo!="" && modeloUsu.usu_contra!=""){
     this.loginUs.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
-      if(data!=null){
-     
-      this.modeloUsuario=data;
-      
-      //Inicio de sesion exitoso
-      Swal.fire(`Inicio de sesion exitoso`,'success')
-      this.router.navigate(['/inicio']);
-        console.log("Bienvenido");
-    }else{
+      if (data !== null) {
+        // Assuming the data object contains the 'roles' field in the appropriate format
+        if (data.roles.id_rol === 1) {
+          // Admin login successful
+          Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
+          this.router.navigate(['/perfil-admin']); // Replace 'admin-dashboard' with the admin's dashboard route
+        } else if (data.roles.id_rol === 2) {
+          // Player login successful
+          Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
+          this.router.navigate(['/ventanaj/scroll']); // Replace 'player-dashboard' with the player's dashboard route
+        }
+      }else{
       Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error')
         }
       }
@@ -67,3 +70,6 @@ login(modeloUsu:Usuarios){
   } 
 
 
+  
+
+  
