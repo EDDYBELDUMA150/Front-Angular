@@ -69,6 +69,18 @@ const routes: Routes = [
        
     },
 
+
+
+   // {
+      //path:'estado-app',
+      //component: EstadoAppComponent
+      
+       
+  //  },
+    //{
+    //  path:'app-scrolldeshaboard',
+    //  component: ScrolldeshaboardComponent
+
     //{
      // path:'estado-app',
      // component: EstadoAppComponent,
@@ -78,8 +90,14 @@ const routes: Routes = [
     
 
 
+    //{
+    //  path:'estado-app',
+    //  component: EstadoAppComponent,
+      
+       
 
- 
+  //  }
+
 
     
   ]

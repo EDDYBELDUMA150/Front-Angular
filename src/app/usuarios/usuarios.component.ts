@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Usuarios } from './Usuarios';
 import { UsuariosService } from './usuarios.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Roles } from './Roles';
 @Component({
+
+  
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
@@ -20,6 +22,44 @@ export class UsuariosComponent {
 
    ///////////////////////////
   roles: Roles[] = [];
+/////////////////////////////////////////////////DATOS QUEMADOS PARA NIVEL ACADEMICO
+nivelesAcademicos: string[] = ['Primaria', 'Secundaria', 'Bachillerato', 'Universidad'];
+
+/////////////////////////////////////////////////////////
+buscarTexto: string = '';
+buscarCodigo: number=0;
+
+
+buscarUsuarios() {
+  const textoBusqueda = this.buscarTexto.trim().toLowerCase();
+
+  if (textoBusqueda === '') {
+    this.list();
+  } else {
+    this.usuarios = this.usuarios.filter(usuario =>
+      usuario.usu_nombre.toLowerCase().includes(textoBusqueda) ||
+      usuario.usu_correo.toLowerCase().includes(textoBusqueda)
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////
+buscarUsuarioPorCodigo() {
+  const codigoBusqueda = this.buscarCodigo.toString().trim();
+
+  if (codigoBusqueda === '') {
+    this.list();
+  } else {
+    this.usuarios = this.usuarios.filter(usuario =>
+      usuario.id_usuario.toString().includes(codigoBusqueda)
+    );
+  }
+}
+
+////////////////////////////////////////////////////////////////////
+
+
+
 
 
   formUsuarios: FormGroup = new FormGroup({});
@@ -58,23 +98,6 @@ export class UsuariosComponent {
   );
 }
 
-save(){
-  const usuario = this.formUsuarios.value;
-  const idRol = usuario.id_rol; // Obtén el id_rol del formulario
-
-  // Asigna el id_rol al objeto usuario
-  usuario.id_rol = idRol;
-   
-  this.usuariosService.postUsuarios(this.formUsuarios.value).subscribe(resp=>{
-      if(resp){
-        this.list();
-        this.formUsuarios.reset();
-        
-        Swal.fire('Usuario Registrado', `Usuario  registrado con exito`, 'success')
-      }
-  });
-}
-
 
 savee() {
   if (this.formUsuarios.valid) {
@@ -101,13 +124,12 @@ savee() {
         Swal.fire('Error', 'Ocurrió un error al registrar el usuario', 'error');
       }
     );
+  }else {
+    Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
+    this.formUsuarios.markAllAsTouched();
   }
 }
 
-
-
-
-   
   list(){
     this.usuariosService.ListarUsuarios().subscribe(resp=>{
          if(resp){
@@ -116,46 +138,22 @@ savee() {
     });
   }
 
-  
-
- 
-  
-
-
-
-
-  update(){
-
-    const usuario = this.formUsuarios.value;
-    //console.log(" id de rol: "+usuario.id_rol);
-    const idRol = usuario.id_rol; // Obtén el id_rol del formulario
-
-
-    // Asigna el id_rol al objeto usuario
-
-    usuario.roles = new Roles(idRol,"admin");
-
-
-    this.usuariosService.ModificarUsuarios(this.formUsuarios.value).subscribe(resp=>{
-      if(resp){
-        this.list();
-        this.formUsuarios.reset();
-      }
-    });
-  }
-
-
-
-  updatee() {
+  updateee() {
     if (this.formUsuarios.valid) {
       const usuario = this.formUsuarios.value;
       const idRol = usuario.id_rol;
-      //console.log(" id de rol: "+usuario.id_rol);
   
-      usuario.roles = new Roles(idRol,"");
-
-     // console.log("despues del rol ");
-      this.usuariosService.ModificarUsuarios(usuario).subscribe(
+      // Busca el objeto de rol correspondiente en la lista de roles del componente
+      const selectedRole = this.roles.find(role => role.id_rol === idRol);
+  
+      // Asigna el objeto de rol seleccionado al objeto usuario
+      usuario.roles = selectedRole;
+  
+      // Obtiene el ID del usuario que se está actualizando (puede variar según tu implementación)
+      const userId = this.formUsuarios.controls['id_usuario'].value;
+  
+      // Realiza el update llamando al servicio correspondiente
+      this.usuariosService.updateUsuario(userId, usuario).subscribe(
         (resp) => {
           this.list();
           this.formUsuarios.reset();
@@ -166,15 +164,11 @@ savee() {
           Swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
         }
       );
+    }else {
+      Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     }
   }
   
-
-
-
-
-
-
 
   delete(id: any){
     this.usuariosService.EliminarUsuarios(id).subscribe(resp=>{
@@ -229,7 +223,9 @@ savee() {
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
     this.formUsuarios.controls['usu_correo'].setValue(item.usu_correo);
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
+    this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado
    
+
   }
 
 }

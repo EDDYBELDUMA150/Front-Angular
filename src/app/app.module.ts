@@ -16,7 +16,9 @@ import { NosotrosComponent } from './nosotros/nosotros.component';
 import { FormComponent } from './recursos/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-//import { EstadoAppComponent } from './estado-app/estado-app.component';
+
+
+
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
@@ -31,7 +33,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent,
+   
     HomeComponent,
     DeshaboardComponent,
     DirectivaComponent,
@@ -45,10 +47,20 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     ScrolldeshaboardComponent,
     UsuariosComponent,
     FormComponent,
+
+    
+   FooterComponent,
+
+   
+    VentanaJugadorComponent,
+    ProgressBarComponent,
+
+
     //EstadoAppComponent,
     VentanaJugadorComponent,
     ProgressBarComponent,
     NosotrosComponent
+
   
 
   ],
