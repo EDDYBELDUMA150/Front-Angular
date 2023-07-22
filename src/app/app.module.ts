@@ -19,8 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component'; 
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
-import { ProgresoComponent } from './progreso/progreso.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 
 
@@ -29,7 +30,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent,
+   
     HomeComponent,
     DeshaboardComponent,
     DirectivaComponent,
@@ -40,12 +41,16 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     FormComponent,
     AdminActivComponent,
     VerUserRolComponent,
-    ProgresoComponent,
     ScrolldeshaboardComponent,
     UsuariosComponent,
-    FormComponent
+    FormComponent,
     
+   FooterComponent,
+
    
+    VentanaJugadorComponent,
+    ProgressBarComponent
+
   
 
   ],

@@ -27,7 +27,6 @@ export class AdminActivComponent {
 
   ngOnInit(): void {
     this.obtenerAprendizaje();
-    this.cargarActividades();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();
     this.formactiv= new FormGroup({

@@ -1,0 +1,83 @@
+body,
+section,
+.carousel,
+.carousel-inner,
+.carousel-item {
+    height: 100%;
+}
+
+.carousel-inner .carousel-item>img {
+    height: 100%;
+    width: 85;
+    object-fit: cover;
+    animation: zoomin 10s linear infinite;
+}
+.carousel-indicators{
+    position: absolute;
+    top: 80%;
+    left: 0%;
+}
+
+@keyframes zoomin {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.carousel-indicators button {
+    border-radius: 50%;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.carousel-indicators button.active {
+    background-color: #d8b700 !important;
+}
+
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: inherit;
+}
+
+
+.w100 {
+    font-weight: 100 !important;
+}
+
+.w300 {
+    font-weight: 300 !important;
+}
+
+.w400 {
+    font-weight: 400 !important;
+}
+
+.w500 {
+    font-weight: 500 !important;
+}
+
+.w700 {
+    font-weight: 700 !important;
+}
+
+.w900 {
+    font-weight: 900 !important;
+}
+p{
+    color: #2c3357;
+    font-size: 22px;
+}
+h3{
+    font-size: 3.2em; 
+    color: #000000f8;
+}
