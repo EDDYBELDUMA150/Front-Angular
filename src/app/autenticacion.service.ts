@@ -12,7 +12,7 @@ export class AuntenticacionService {
   constructor(private http: HttpClient, private router: Router) { }
 
   getUsuarioUserPass(usua:Usuarios){
-    return this.http.get<Usuarios>(this.URLlistarUsu+"/list/"+usua.usu_correo+"/"+usua.usu_contra);
+    return this.http.get<Usuarios>(this.URLlistarUsu+"/list/"+usua.correo+"/"+usua.usu_contra);
   }
 
 }

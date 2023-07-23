@@ -38,7 +38,7 @@ buscarUsuarios() {
   } else {
     this.usuarios = this.usuarios.filter(usuario =>
       usuario.usu_nombre.toLowerCase().includes(textoBusqueda) ||
-      usuario.usu_correo.toLowerCase().includes(textoBusqueda)
+      usuario.correo.toLowerCase().includes(textoBusqueda)
     );
   }
 }
@@ -75,7 +75,7 @@ buscarUsuarioPorCodigo() {
       id_usuario: new FormControl(''),
       usu_nombre: new FormControl(''),
       usu_contra: new FormControl(''),
-      usu_correo: new FormControl(''),
+      correo: new FormControl(''),
       usu_nivelacademico: new FormControl(''),
       id_rol: new FormControl('')
       
@@ -221,7 +221,7 @@ savee() {
     this.formUsuarios.controls['id_usuario'].setValue(item.id_usuario);
     this.formUsuarios.controls['usu_nombre'].setValue(item.usu_nombre);
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
-    this.formUsuarios.controls['usu_correo'].setValue(item.usu_correo);
+    this.formUsuarios.controls['usu_correo'].setValue(item.correo);
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado
    

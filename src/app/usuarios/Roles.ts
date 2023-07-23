@@ -1,6 +1,6 @@
 export class Roles {
-    id_rol: number = 0;
-    rol_nombre: String = "";
+    id_rol: number ;
+    rol_nombre: String;
 
     Roles() {
 

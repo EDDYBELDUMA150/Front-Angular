@@ -50,7 +50,7 @@ export class UsuariosService {
 
   create(request: any): Observable<any> {
    
-    return this.http.post<any>(this.UrlListar + '/create', request).pipe(
+    return this.http.post<any>(this.UrlListar + '/crearcrypto', request).pipe(
       map(response => response as Usuarios[])
     );
   }

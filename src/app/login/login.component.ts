@@ -40,30 +40,64 @@ export class LoginComponent {
     }
 }
 
-login(modeloUsu:Usuarios){
-  if(modeloUsu.usu_correo!="" && modeloUsu.usu_contra!=""){
-    this.loginUs.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
-      if (data !== null) {
-        // Assuming the data object contains the 'roles' field in the appropriate format
-        if (data.roles.id_rol === 1) {
-          // Admin login successful
-          Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
-          this.router.navigate(['/perfil-admin']); // Replace 'admin-dashboard' with the admin's dashboard route
-        } else if (data.roles.id_rol === 2) {
-          // Player login successful
-          Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
-          this.router.navigate(['/ventanaj/scroll']); // Replace 'player-dashboard' with the player's dashboard route
+login(modeloUsu: Usuarios) {
+  if (modeloUsu.correo !== '' && modeloUsu.usu_contra !== '') {
+    this.loginUs.login(modeloUsu.correo, modeloUsu.usu_contra).subscribe(
+      (data) => {
+        if (data !== null) {
+          const rol = data.rol; // Access 'rol' from the 'data' object
+
+          if (rol === 1) {
+            // Admin login successful
+            Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
+            this.router.navigate(['/perfil-admin/scroll']);
+          } else if (rol === 2) {
+            // Player login successful
+            Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
+            this.router.navigate(['/ventanaj/scroll']);
+          }
+        } else {
+          Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');
         }
-      }else{
-      Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error')
-        }
+      },
+      (error) => {
+        console.error(error);
+        Swal.fire('Inicio de Sesión Fallido', `Error en el servidor`, 'error');
       }
     );
-    
-}else{
-  Swal.fire('Inicio de Sesión Fallido','Ingrese los datos','warning');
+  } else {
+    Swal.fire('Inicio de Sesión Fallido', 'Ingrese los datos', 'warning');
+  }
 }
-} 
+
+/*login1() {
+  if (this.correo !== '' && this.usu_contra !== '') {
+    this.loginUs.logar(this.modeloUsuario)
+      .subscribe(
+        data => {
+          if (data !== null && data.message === 'Inicio de sesión exitoso') {
+            if (data.roles.id_rol === 1) {
+              Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
+              this.router.navigate(['/perfil-admin']);
+            } else if (data.roles.id_rol === 2) {
+              Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
+              this.router.navigate(['/ventanaj/scroll']);
+            } else {
+              Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');
+            }
+          } else {
+            Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');
+          }
+        },
+        error => {
+          console.error(error);
+          Swal.fire('Inicio de Sesión Fallido', `Error en el servidor`, 'error');
+        }
+      );
+  } else {
+    Swal.fire('Inicio de Sesión Fallido', 'Ingrese los datos', 'warning');
+  }
+}*/
   public get f():any {
      return this.myForm.controls; 
     }  
