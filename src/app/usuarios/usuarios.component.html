@@ -1,6 +1,4 @@
-
-
-<p><h1 style="color: rgb(9, 24, 156);">ADMINISTRADOR DE USUARIOS</h1>
+<p><h1 style="color: rgb(78, 21, 119);">Administrar Usuarios</h1>
     <div class="col-md-12 p-2">
 
       
@@ -18,7 +16,7 @@
         </div>
         <div>
           <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <i class="fa fa-save"></i> NUEVO USUARIO
+            <i class="fa fa-save"></i> Nuevo Usuario
           </button>
         </div>
       </div>
@@ -29,11 +27,11 @@
       <table class="table mt-2 table-bordered">
         <thead class="table-primary">
           <tr>
-            <th>CODIGO</th>
-            <th>NOMBRE</th>
-            <th>CONTRASEÑA</th>
-            <th>CORREO</th>
-            <th>NIVEL ACADEMICO</th>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Contraseña</th>
+            <th>Correo</th>
+            <th>Nivel Académico</th>
             <th>Rol</th>
             
 
@@ -73,7 +71,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary">Guardar Cambios</button>
           </div>
         </div>
       </div>
@@ -94,7 +92,7 @@
               <form [formGroup]="formUsuarios">
                   
                   <div class="mb-3 row">
-                      <label class="col-sm-2 col-form-label">NOMBRE</label>
+                      <label class="col-sm-2 col-form-label">Nombre</label>
                       <div class="col-sm-10">
                         <input type="text" class="form-control" formControlName="usu_nombre" pattern="^[^0-9]*$"  placeholder="Ingrese Nombre" 
                         title="El nombre no puede tener números" required>
@@ -106,7 +104,7 @@
 
 
                   <div class="mb-3 row">
-                      <label class="col-sm-2 col-form-label">CONTRASEÑA</label>
+                      <label class="col-sm-2 col-form-label">Contraseña</label>
                       <div class="col-sm-10">
                         <input type="password" class="form-control" formControlName="usu_contra" name="clave" 
                         title="La contraseña debe contener un dígito, letras mayusculas, minusculas y una extencion de 8 caracteres" 
@@ -114,7 +112,7 @@
                       </div>
                   </div>
                   <div class="mb-3 row">
-                      <label class="col-sm-2 col-form-label">CORREO</label>
+                      <label class="col-sm-2 col-form-label">Correo</label>
                       <div class="col-sm-10">
                         <input type="email" class="form-control" formControlName="correo" name="correo"required 
                         placeholder="Ingrese correo electrónico" 
@@ -124,7 +122,7 @@
 
  
                  <div class="mb-3 row">
-  <label class="col-sm-2 col-form-label">NIVEL ACADEMICO</label>
+  <label class="col-sm-2 col-form-label">Nivel Académico</label>
   <div class="col-sm-10">
     <select class="form-control" formControlName="usu_nivelacademico"  required>
       <option value="" selected disabled>Seleccione un nivel académico</option>
@@ -135,7 +133,7 @@
 
 
                 <div class="form-group">
-                    <label class="col-sm-2 col-form-label">ROL</label>
+                    <label class="col-sm-2 col-form-label">Rol</label>
                     <div class="col-sm-10">
                         <select   class="form-control" formControlName="id_rol"  required>
                             <option value="" selected disabled>Seleccione un rol</option>
@@ -151,8 +149,8 @@
                 </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-            <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Savee</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"> Close</button>
+            <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
             <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="updateee()">Update</button>
           </div>
         </div>
