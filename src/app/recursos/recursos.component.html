@@ -1,5 +1,5 @@
 
-<h1 style="color: rgb(1, 1, 1);">ADMIN RECURSOS</h1>
+<h1 style="color: rgb(78, 21, 119);">Administrar Recursos</h1>
 <div class="col-md-12 p-2">
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="fa fa-save"></i> Nuevo Recurso
@@ -7,10 +7,10 @@
   <table class="table mt-2 table-bordered">
     <thead class="table-primary">
       <tr>
-        <th>ID</th>
-        <th>ENLACES</th>
+        <th>Id</th>
+        <th>Enlaces</th>
         <th>PDFS</th>
-        <th>IMAGENES</th>
+        <th>Imágenes</th>
       </tr>
     </thead>
     <tbody>
@@ -44,7 +44,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>
@@ -61,13 +61,13 @@
       <div class="modal-body">
           <form [formGroup]="formRecursos">
               <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">ID</label>
+                  <label class="col-sm-2 col-form-label">Id</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" formControlName="id_recurso">
                   </div>
               </div>
               <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">ENLACES</label>
+                  <label class="col-sm-2 col-form-label">Enlaces</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" formControlName="rec_enlaces">
                   </div>
@@ -81,7 +81,7 @@
             </div>
             
             <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">IMAGENES</label>
+                <label class="col-sm-2 col-form-label">Imágenes</label>
                 <div class="col-sm-10">
                     <input type="file" #fileInput class="form-control-file" formControlName="rec_imagenes">
                 </div>
