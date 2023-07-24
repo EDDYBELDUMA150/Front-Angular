@@ -1,19 +1,17 @@
 import { Jugador } from "../modelo/Jugador";
 import { Roles } from "./Roles";
 
+
+
 export class Usuarios{
     id_usuario:number=0;
-    usu_nombre:String="";
-    usu_contra:String="";
-    correo:String="";
-
-    
-  
+    usu_nombre:string="";
+    usu_contra:string="";
+    correo:string="";
     usu_nivelacademico="";
     roles: Roles; 
     
-    jugador?: Jugador;
-  usuarios: any;
+   
     Usuarios(){}
 
     constructor() {
@@ -22,4 +20,3 @@ export class Usuarios{
       }
    
 }
-    

@@ -211,5 +211,45 @@ h2 {
       transform: rotate(153deg);
     }
   }
-   
-  
+
+  .progress {
+    height: 70px;
+    width: 380%;
+    border: 1px solid #428bca;
+    border-radius: 5px;
+    background-color: #e6f3fa;
+    margin-bottom: 15px;
+}
+ 
+.progress-bar {
+    height: 100%;
+    background: #428bca;
+    display: flex;
+    align-items: center;
+    transition: width 0.25s;
+    border-radius: 5px;
+}
+ 
+.progress-bar-text {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #cce7f5;
+}
+
+
+
+/* Estilos para los encabezados de la tabla */
+.custom-table thead th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilos para las celdas del cuerpo de la tabla */
+.custom-table tbody td {
+  background-color: white;
+}
+
+/* Estilos para resaltar las filas al pasar el mouse sobre ellas */
+.custom-table tbody tr:hover {
+  background-color: #cfe2ff;
+}

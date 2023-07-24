@@ -247,7 +247,11 @@ savee() {
     this.formUsuarios.controls['id_usuario'].setValue(item.id_usuario);
     this.formUsuarios.controls['usu_nombre'].setValue(item.usu_nombre);
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
+
     this.formUsuarios.controls['correo'].setValue(item.correo);
+
+    this.formUsuarios.controls['usu_correo'].setValue(item.correo);
+
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado
    

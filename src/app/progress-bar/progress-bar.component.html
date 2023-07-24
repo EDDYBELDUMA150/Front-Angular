@@ -1,89 +1,98 @@
 <body>
-    <div class="container">
-      <div class="row">
-        <!-- Primera columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje Lectura</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-1">
-                <div class="fill-1"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-1"></div>
-              </div>
-              <div class="inside-circle">85%</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Segunda columna -->
-        <div class="col-md-3">
-          <h2>Compresion Lectora</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-2">
-                <div class="fill-2"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-2"></div>
-              </div>
-              <div class="inside-circle">65%</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Tercera columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje Escritura</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-3">
-                <div class="fill-3"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-3"></div>
-              </div>
-              <div class="inside-circle">75%</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Cuarta columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje Juegos</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-4">
-                <div class="fill-4"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-4"></div>
-              </div>
-              <div class="inside-circle">10%</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
+  <div class="container">
     <div class="row">
-        <div class="col-md-3 justify-content-center"> <!-- Agrega la clase justify-content-center -->
-          <h2 class="text-center">PROGRESO GENERAL</h2>
-          <div class="circle-wrap5 text-center"> <!-- Agrega la clase text-center -->
-            <div class="circle5">
-              <div class="mask full-5">
-                <div class="fill-5"></div>
-              </div>
-              <div class="mask half5">
-                <div class="fill-5"></div>
-              </div>
-              <div class="inside-circle5">10%</div>
+      <!-- Primera columna - Aprendizaje con Logico -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Lógico</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-1">
+              <div class="fill-1" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(1))"></div>
             </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(1) }}%</div>
           </div>
         </div>
       </div>
-      
-    
-  </body>
   
+      <!-- Segunda columna - Aprendizaje con Juegos -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Juegos</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-2">
+              <div class="fill-2" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(2))"></div>
+            </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(2) }}%</div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Tercera columna - Aprendizaje con Comprensión -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Comprensión</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-3">
+              <div class="fill-3" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(3))"></div>
+            </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(3) }}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Progreso general -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 justify-content-center">
+        <h2 class="text-center">PROGRESO GENERAL</h2>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="usuarioLogueado.jugador.progreso.prog_puntaje_total + '%'">
+            <span class="progress-bar-text">{{usuarioLogueado.jugador.progreso.prog_puntaje_total}}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="inside-circle5"></div>
+  <div class="card">
+    <!--CARD PARA MOSTRAR INFORMACION SOBRE EL JUEGO -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover custom-table">
+        <thead>
+          <tr>
+            <th>Fecha de inicio</th>
+            <th>Fecha Actual</th>
+            <th>Jugador Nombre</th>
+            <th>Puntaje General</th>
+            <!-- Agrega más encabezados si tienes más datos para mostrar en la tabla -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{usuarioLogueado.jugador.usuarios.usu_fecha_inic}}</td>
+            <td>{{usuarioLogueado.jugador.usuarios.prog}}</td>
+            <td>{{usuarioLogueado.jugador.player_nombre}}</td>
+            <td>{{usuarioLogueado.jugador.progreso.prog_puntaje_total}}% de 100%</td>
+            <!-- Agrega más celdas con los datos correspondientes -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="inspiration">
+    <a rel="noopener" target="_blank"
+      href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/heartland.jpg">Inspiration</a>
+  </div>
+
+
+
+
+
+
+</body>

@@ -9,11 +9,11 @@ import { DirectivaComponent } from './directiva/directiva.component';
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-//import { EstadoAppComponent } from './estado-app/estado-app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { EstadoApp1Component } from './estado-app1/estado-app1.component';
 
 ////
 
@@ -68,35 +68,18 @@ const routes: Routes = [
       
        
     },
-
-
-
-   // {
-      //path:'estado-app',
-      //component: EstadoAppComponent
+    {
+      path:'estado-app1',
+      component: EstadoApp1Component
       
        
-  //  },
-    //{
-    //  path:'app-scrolldeshaboard',
-    //  component: ScrolldeshaboardComponent
+   },
+   {  
+     path:'scroll',
+    component: ScrolldeshaboardComponent
 
-    //{
-     // path:'estado-app',
-     // component: EstadoAppComponent,
-      
-       
-    //}
-    
-
-
-    //{
-    //  path:'estado-app',
-    //  component: EstadoAppComponent,
-      
-       
-
-  //  }
+   },
+  
 
 
     

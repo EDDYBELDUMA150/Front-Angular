@@ -1,3 +1,168 @@
+/* Estilos para el contenedor del texto */
+.navbar-text-container {
+    display: flex;
+    align-items: center; /* Centrar verticalmente el contenido */
+    height: 100%; /* Asegurar que ocupe toda la altura disponible */
+  }
+  
+  /* Estilos para el texto "Administrador" */
+  .navbar-text {
+    margin: 0; /* Eliminar márgenes por defecto del h2 */
+    font-family: 'Poppins', sans-serif; /* Utilizar la fuente Poppins */
+    font-weight: 600; /* Utilizar la variante de negrita */
+    color: rgb(78, 21, 119); /* Color del texto, puedes ajustarlo según tu preferencia */
+    /* Otros estilos si los deseas */
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    padding: 1rem 0;
+    color: rgb(78, 21, 119);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+  
+
+.botonn {
+    color: rgb(155, 98, 230); 
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    outline: none;
+  }
+  
+  .botonn:hover {
+    color: rgb(151, 240, 136); 
+    background-color: rgb(229, 117, 102);
+  }
+  
+  .welcome-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+  }
+  
+  .welcome-space {
+    width: 190px; 
+  }
+  
+  .welcome-inter {
+    height: 50px; 
+  }
+  
+  .welcome-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+  }
+  
+  
+  
+  
+  
+  
+  
+  .btn-custom-green {
+    background-color: #ffffff; /* Cambiar el color de fondo */
+    border: none; /* Eliminar el borde */
+    color: rgb(155, 98, 230); /* Color de la letra en el botón */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    outline: none;
+    padding: 10px 20px; /* Agregar padding para dar espacio al contenido del botón */
+    font-size: 16px; /* Tamaño de la letra */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
+  }
+  
+  /* Cambiar el color de la letra cuando el mouse se acerque (hover) */
+  .btn-custom-green:hover {
+    background-color: rgb(78, 21, 119); /* Cambiar el color de fondo a más oscuro */
+    color: rgb(195, 225, 172);
+  }
+  
+  
+  
+  
+  .message {
+    padding: 1rem;
+  }
+  
+  .message p{
+    font-size: 1.25em;
+    margin-top: 1rem 0;
+    color: rgb(131, 82, 165);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+  } 
+  
+  .message a{
+    font-size: 1.25em;
+    margin-top: 1rem 0;
+    color: rgb(131, 82, 165);
+    font-weight: 500;
+  } 
+  
+  
+  .message button {
+    padding: 1rem;
+    font-weight: 400;
+    background-color: #4a4aee;
+    border-radius: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: #fff;
+  }
+  
+  .message button:hover {
+    background-color: #6464f8;
+  }
+  
+  .message h2 {
+    font-size: 3.5rem;
+    padding: 1rem 0;
+    color: rgb(78, 21, 119);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 501;
+    text-align: center;
+  }
+  
+  
+  p{
+    font-size: 1.0em;
+    margin-top: 1rem 0;
+    color: rgb(33, 4, 55);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+  } 
+  
+  
+  h3 {
+    font-size: 2.0rem;
+    padding: 1rem 0;
+    color: rgb(78, 21, 119);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  .welcome-inter {
+    height: 5px; 
+  }
+  
+  .welcome-inte {
+    height: 15px; 
+  }
+  
+
+
+
+
 
 @import '~@fortawesome/fontawesome-free/css/all.css';
 body {
@@ -37,10 +202,16 @@ body {
     font-size: 35px;
 }
 
+/*PANTALLA CATALINA*/
+
+main col{
+    background: rgb(82, 165, 139);;
+}
+
 /*BARRA LATERAL*/
 
 .barra-lateral {
-    background: #252121;
+    background: rgb(131, 82, 165);
     color: #fff;
     min-width: 250px;
     min-height: 100vh;
@@ -48,7 +219,7 @@ body {
 }
 
 .barra-lateral a {
-    color: #fff;
+    color: #f0edf3;
 }
 
 /*ESTILOS MENU*/
@@ -62,7 +233,7 @@ body {
 }
 
 .barra-lateral .menu a:hover {
-    background-color: #003C5D;
+    background-color: rgb(80, 27, 119);
     text-decoration: none;
 }
 

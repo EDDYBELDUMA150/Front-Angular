@@ -17,7 +17,7 @@
                             <!-- END profile-header-img -->
                             <!-- BEGIN profile-header-info -->
                             <div class="profile-header-info">
-                                <h4 class="m-t-10 m-b-5">Usuario Jugador</h4>
+                                <h4 class="m-t-10 m-b-5">{{usuarioLogueado.jugador.usuarios.usu_nombre}}</h4>
                                 <p class="nimono">Yo leo con Lorenzo</p>
                                 <div class="desplegable">
     
@@ -26,21 +26,16 @@
                                 </div>
     
     
-    
-    
                                 <ul class="profile-header-tab nav nav-tabs">
-                                    <li class="nav-item"><a href="ventanaj/scroll" target="__blank" class="nav-link_"><i class="fa-solid fa-house"></i>INICIO
-                                    </a></li>
-                                    <li class="nav-item"><a href="" target="__blank" class="nav-link_"><i class="fa-solid fa-user"></i>MI PERFIL</a>
-                                    </li>
-                                    <li class="nav-item"><a href="ventanaj/progress" target="__blank" class="nav-link_" style="text-decoration: aqua;"><i class="fa-solid fa-graduation-cap"></i>VER PROGRESO
-                                        </a></li>
-                                    <li class="nav-item"><a href="" target="__blank" class="nav-link_"><i class="fa-solid fa-right-from-bracket"></i>CERRAR SESION</a>
-                                    </li>
+                                    <!-- Llamada al método para redirigir a la ruta '/ventanaj/scroll' -->
+                                    <li class="nav-item"><a (click)="redirectToInicio()" class="nav-link_"><i class="fa-solid fa-house"></i>INICIO</a></li>
+                                    <!-- Llamada al método para redirigir a la ruta '/ventanaj/progress' -->
+                                    <li class="nav-item"><a (click)="redirectToProgreso()" class="nav-link_" style="text-decoration: aqua;"><i class="fa-solid fa-graduation-cap"></i>VER PROGRESO</a></li>
+                                    <!-- Llamada al método para cerrar sesión -->
+                                    <li class="nav-item"><a (click)="cerrarSesion()" class="nav-link_"><i class="fa-solid fa-right-from-bracket"></i>CERRAR SESION</a></li>
+                                  </ul>
     
-    
-    
-                                </ul>
+
                                 <!-- END profile-header-tab -->
                             </div>
                         </div>
