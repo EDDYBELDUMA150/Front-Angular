@@ -41,7 +41,7 @@ export class LoginComponent {
 }
 
 login(modeloUsu:Usuarios){
-  if(modeloUsu.usu_correo!="" && modeloUsu.usu_contra!=""){
+  if(modeloUsu.correo!="" && modeloUsu.usu_contra!=""){
     this.loginUs.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
       if(data!=null){
      

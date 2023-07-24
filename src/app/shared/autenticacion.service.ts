@@ -19,7 +19,7 @@ export class AutenticacionService {
     return this.http.get<Usuarios[]>(this.URLlistarUsu);
   }
   getUsuarioUserPass(usua:Usuarios){
-    return this.http.get<Usuarios>(this.URLlistarUsu+"/usuarios/"+usua.usu_correo+"/"+usua.usu_contra);
+    return this.http.get<Usuarios>(this.URLlistarUsu+"/usuarios/"+usua.correo+"/"+usua.usu_contra);
   }
  
 

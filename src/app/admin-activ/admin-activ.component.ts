@@ -105,7 +105,7 @@ export class AdminActivComponent {
       // Asigna el id_recurdo y id_aprendizaje  al objeto actividad
   
       actividad.aprendizaje = new tipoAprendizaje (id_tipo_apren,"recurso",0);;
-      actividad.recursos= new Recursos(id_recurso,"Leer");;
+      //actividad.recursos= new Recursos(id_recurso,"Leer");;
       //console.log("despues del rol");
       
   

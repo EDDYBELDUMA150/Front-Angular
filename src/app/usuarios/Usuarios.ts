@@ -4,7 +4,7 @@ export class Usuarios{
     id_usuario:number=0;
     usu_nombre:String="";
     usu_contra:String="";
-    usu_correo:String="";
+    correo:String="";
     usu_nivelacademico="";
     roles: Roles; 
 

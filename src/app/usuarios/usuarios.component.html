@@ -31,7 +31,7 @@
           <tr>
             <th>CODIGO</th>
             <th>NOMBRE</th>
-            <th>CONTRASEÑA</th>
+           
             <th>CORREO</th>
             <th>NIVEL ACADEMICO</th>
             <th>Rol</th>
@@ -43,8 +43,8 @@
           <tr *ngFor="let item of usuarios">
             <td>{{item.id_usuario}}</td>
             <td>{{item.usu_nombre}}</td>
-            <td>{{item.usu_contra}}</td>
-            <td>{{item.usu_correo}}</td>
+           
+            <td>{{item.correo}}</td>
             <td>{{item.usu_nivelacademico}}</td>
             <td>{{item.roles.rol_nombre }}</td>
 
@@ -87,7 +87,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 *ngIf="!isupdate" class="modal-title fs-5">Crear Usuario</h1>
-            <h1 *ngIf="isupdate" class="modal-title fs-5">Crear Usuario</h1>
+            <h1 *ngIf="isupdate" class="modal-title fs-5">Editar Usuario</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newUsuario()"></button>
           </div>
           <div class="modal-body">
@@ -116,7 +116,7 @@
                   <div class="mb-3 row">
                       <label class="col-sm-2 col-form-label">CORREO</label>
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" formControlName="usu_correo" name="correo"required 
+                        <input type="email" class="form-control" formControlName="correo" name="correo"required 
                         placeholder="Ingrese correo electrónico" 
                         pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" title="ingresar un correo valido ejemplo: 'ejemplo@gmail.com'">
                       </div>
@@ -137,7 +137,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 col-form-label">ROL</label>
                     <div class="col-sm-10">
-                        <select   class="form-control" formControlName="id_rol"  required>
+                        <select   class="form-control" formControlName="id_rol" >
                             <option value="" selected disabled>Seleccione un rol</option>
                             <option *ngFor="let rol of roles" [value]="rol.id_rol">{{ rol.rol_nombre }}</option>
                           </select>
@@ -152,8 +152,8 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-            <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Savee</button>
-            <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="updateee()">Update</button>
+            <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
+            <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
           </div>
         </div>
       </div>

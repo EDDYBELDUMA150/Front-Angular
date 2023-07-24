@@ -1,19 +1,17 @@
 import { Actividad } from "./Actividad";
 
 export class Recursos {
-    id_recurso: number;
-    rec_nombre:string;
-    rec_enlaces?: string;
-    rec_pdfs?: string;
-    rec_imagenes?: string;
+    id_recurso: number=0;
+    rec_nombre: String="";
+    
+    rec_enlaces: String="";
+
+    rec_img: String="";
+    
 
     Recursos(){}
 
-    constructor(id_recurso: number, rec_nombre: string) {
-        this.id_recurso = id_recurso;
-        this.rec_nombre = rec_nombre;
-        
-    }
+ 
     //El constructor Crea una instancia Recursos
     
 }

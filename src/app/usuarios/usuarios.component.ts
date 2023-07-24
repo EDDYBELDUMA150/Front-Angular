@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuarios } from './Usuarios';
 import { UsuariosService } from './usuarios.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Roles } from './Roles';
 @Component({
@@ -38,7 +38,7 @@ buscarUsuarios() {
   } else {
     this.usuarios = this.usuarios.filter(usuario =>
       usuario.usu_nombre.toLowerCase().includes(textoBusqueda) ||
-      usuario.usu_correo.toLowerCase().includes(textoBusqueda)
+      usuario.correo.toLowerCase().includes(textoBusqueda)
     );
   }
 }
@@ -56,9 +56,6 @@ buscarUsuarioPorCodigo() {
   }
 }
 
-////////////////////////////////////////////////////////////////////
-
-
 
 
 
@@ -67,7 +64,6 @@ buscarUsuarioPorCodigo() {
   isupdate: boolean=false;
 
     ngOnInit(): void{ 
-
     
     this.obtenerRoles();
     this.list();
@@ -75,7 +71,7 @@ buscarUsuarioPorCodigo() {
       id_usuario: new FormControl(''),
       usu_nombre: new FormControl(''),
       usu_contra: new FormControl(''),
-      usu_correo: new FormControl(''),
+      correo: new FormControl(''),
       usu_nivelacademico: new FormControl(''),
       id_rol: new FormControl('')
       
@@ -112,7 +108,6 @@ savee() {
     console.log("despues del rol");
 
 
-
     this.usuariosService.create(usuario).subscribe(
       (resp) => {
         this.list();
@@ -128,6 +123,7 @@ savee() {
     Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     this.formUsuarios.markAllAsTouched();
   }
+  this.formUsuarios.get('usu_contra')?.enable();
 }
 
   list(){
@@ -165,6 +161,36 @@ savee() {
         }
       );
     }else {
+      Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
+    }
+  }
+  ////////////////////////////////////////
+  update() {
+    if (this.formUsuarios.valid) {
+      const usuario = {
+        id_usuario: this.formUsuarios.controls['id_usuario'].value,
+        usu_nombre: this.formUsuarios.controls['usu_nombre'].value,
+        correo: this.formUsuarios.controls['correo'].value,
+        usu_nivelacademico: this.formUsuarios.controls['usu_nivelacademico'].value,
+        id_rol: this.formUsuarios.controls['id_rol'].value
+      };
+  
+      // Obtiene el ID del usuario que se está actualizando (puede variar según tu implementación)
+      const userId = usuario.id_usuario;
+  
+      // Realiza el update llamando al servicio correspondiente
+      this.usuariosService.updateUsuario(userId, usuario).subscribe(
+        (resp) => {
+          this.list();
+          this.formUsuarios.reset();
+          Swal.fire('Usuario Actualizado', 'Usuario actualizado con éxito', 'success');
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
+        }
+      );
+    } else {
       Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     }
   }
@@ -209,7 +235,7 @@ savee() {
 
 
 
-
+ 
 
   newUsuario(){
     this.isupdate=false;
@@ -221,10 +247,13 @@ savee() {
     this.formUsuarios.controls['id_usuario'].setValue(item.id_usuario);
     this.formUsuarios.controls['usu_nombre'].setValue(item.usu_nombre);
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
-    this.formUsuarios.controls['usu_correo'].setValue(item.usu_correo);
+    this.formUsuarios.controls['correo'].setValue(item.correo);
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado
    
+
+     // Deshabilitar el campo de contraseña para edición
+     this.formUsuarios.get('usu_contra')?.disable();
 
   }
 

@@ -1,35 +1,58 @@
 
-<h1 style="color: rgb(1, 1, 1);">ADMIN RECURSOS</h1>
+<h1 style="color: rgb(1, 1, 1);">ADMINISTRADOR RECURSOS</h1>
 <div class="col-md-12 p-2">
-  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <i class="fa fa-save"></i> Nuevo Recurso
-  </button>
+
+
+    <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+          <div class="row">
+            <div class="col-md-4">
+              <input type="text" class="form-control" [(ngModel)]="buscarCodigo" placeholder="CODIGO" (keyup)="buscarUsuarioPorCodigo()">
+            </div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" [(ngModel)]="buscarTexto" placeholder="Buscar recurso" (keyup)="buscarRecurso()">
+            </div>
+          </div>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <i class="fa fa-save"></i> NUEVO USUARIO
+          </button>
+        </div>
+      </div>
+
+
   <table class="table mt-2 table-bordered">
     <thead class="table-primary">
       <tr>
-        <th>ID</th>
+        <th>CODIGO</th>
+        <th>NOMBRE</th>
         <th>ENLACES</th>
-        <th>PDFS</th>
         <th>IMAGENES</th>
+        
+
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of recursos">
         <td>{{item.id_recurso}}</td>
-        <td>{{item.rec_enlaces}}</td>
-        <td>{{item.rec_pdfs}}</td>
-        <td>{{item.rec_imagenes}}</td>
+        <td>{{item.rec_nombre}}</td>
+        <td class="nombre-celda">{{item.rec_enlaces}}</td>
         <td>
-          <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
-            <i class="fa fa-pencil"></i>
-          </button>
-          &nbsp;
-          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delete(item.id_recurso)">
+          <img [src]="'data:image/jpeg;base64,' + item.rec_img" alt="Imagen del Recurso" style="max-width: 100px; max-height: 100px;">
+        </td>
+      
+        
+        <td>
+         
+          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delete(item.id_recurso)" >
             <i class="fa fa-trash"></i>
           </button>
+          
+            
         </td>
       </tr>
-    </tbody>
+    </tbody>  
   </table>
 </div>
 <div class="modal" tabindex="-1">
@@ -54,45 +77,59 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 *ngIf="!isupdate" class="modal-title fs-5">New Card</h1>
+        <h1 *ngIf="!isupdate" class="modal-title fs-5">RECURSOS</h1>
         <h1 *ngIf="isupdate" class="modal-title fs-5">Update Card</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newRecurso()"></button>
       </div>
       <div class="modal-body">
-          <form [formGroup]="formRecursos">
+          <form [formGroup]="formRecursos"  enctype="multipart/form-data">
+              
               <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">ID</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="id_recurso">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">ENLACES</label>
+                  <label class="col-sm-2 col-form-label">Enlaces</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" formControlName="rec_enlaces">
                   </div>
               </div>
-            
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">PDFS</label>
+
+              <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label">Nombre Recurso</label>
                 <div class="col-sm-10">
-                    <input type="file" #fileInput class="form-control-file" formControlName="rec_pdfs">
+                  <input type="text" class="form-control" formControlName="rec_nombre">
                 </div>
             </div>
             
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">IMAGENES</label>
-                <div class="col-sm-10">
-                    <input type="file" #fileInput class="form-control-file" formControlName="rec_imagenes">
-                </div>
-            </div>
+       
+            
+              <div class="col-sm">
+                <h5>Seleccione una imagen:</h5>
+                <br>
+                <div class="row mt-2">
+                  <div class="col-md-12 d-flex justify-content-center align-items-center">
+                    <label for="fileInput" class="image-upload-container">
+                      <div class="image-preview">
+                        <img [src]="recurso.rec_img ? 'data:image/jpeg;base64,' + recurso.rec_img : 'assets/images/prod.png'"
+                          alt="Imagen seleccionada" (click)="fileInput.click()">
+                      </div>
+                      <input type="file" #fileInput id="fileInput" accept="image/jpeg, image/jpg, image/png" (change)="loadProductoImg($event)">
+                    </label>
+                  </div>
+                </div>  
+                <br>
+              </div>
+
+
+
+              
+
+
+              
             
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-        <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="save()">Save</button>
-        <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
+        <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
+       
       </div>
     </div>
   </div>
