@@ -40,6 +40,12 @@ export class AdminActivService {
 
   }
 
+  ListarActividad(): Observable<Actividad[]> {
+    return this.http.get<Actividad[]>(this.actividadesUrl+'/list').pipe(
+      map(response => response as Actividad[])
+    );
+  }
+
   modificarActividad(actividad: Actividad): Observable<Actividad> {
     const url = `${this.General}/update/${actividad.id_activ}`;
     return this.http.put<Actividad>(url, actividad);

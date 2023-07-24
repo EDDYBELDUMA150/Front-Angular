@@ -32,13 +32,10 @@
             <th>NOMBRE</th>
            
             <th>CORREO</th>
-            <th>NIVEL ACADEMICO</th>
-
-            <th>Código</th>
-            <th>Nombre</th>
             <th>Contraseña</th>
-            <th>Correo</th>
-            <th>Nivel Académico</th>
+            <th>NIVEL ACADEMICO</th>
+          
+           
 
             <th>Rol</th>
             
@@ -49,11 +46,11 @@
           <tr *ngFor="let item of usuarios">
             <td>{{item.id_usuario}}</td>
             <td>{{item.usu_nombre}}</td>
-           
+            <td>{{item.correo}}</td>
 
             <td>no visible</td>
 
-            <td>{{item.correo}}</td>
+          
             <td>{{item.usu_nivelacademico}}</td>
             <td>{{item.roles.rol_nombre }}</td>
 
@@ -161,9 +158,7 @@
           </div>
           <div class="modal-footer">
 
-            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-            <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
-            <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
+        
 
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"> Close</button>
             <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>

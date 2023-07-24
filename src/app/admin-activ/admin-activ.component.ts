@@ -25,10 +25,52 @@ export class AdminActivComponent {
   isupdate: boolean=false;
   constructor(private adminActivService: AdminActivService) {}
 
+  buscarTexto: string = '';
+buscarCodigo: number=0;
+
+
+buscarActividad() {
+  const textoBusqueda = this.buscarTexto.trim().toLowerCase();
+
+  if (textoBusqueda === '') {
+    this.list();
+  } else {
+    this.actividades = this.actividades.filter(actividades =>
+      actividades.act_nombre.toLowerCase().includes(textoBusqueda) ||
+      actividades.act_descripcion.toLowerCase().includes(textoBusqueda)
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////
+buscarUsuarioPorCodigo() {
+  const codigoBusqueda = this.buscarCodigo.toString().trim();
+
+  if (codigoBusqueda === '') {
+    this.list();
+  } else {
+    this.actividades = this.actividades.filter(actividades =>
+      actividades.id_activ.toString().includes(codigoBusqueda)
+    );
+  }
+}
+
+list(){
+  this.adminActivService.ListarActividad().subscribe(resp=>{
+       if(resp){
+        this.actividades=resp;
+       }
+  });
+}
+
+
+
+
   ngOnInit(): void {
     this.obtenerAprendizaje();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();
+    this.list();
     this.formactiv= new FormGroup({
       id_activ: new FormControl(''),
       act_nombre: new FormControl(''),

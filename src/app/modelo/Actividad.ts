@@ -3,13 +3,13 @@ import { tipoAprendizaje } from "./TipoAprendizaje";
 
 export class Actividad{
     id_activ:number=0;
-    act_nombre?:string;
-    act_descripcion?: string;
-    act_dificultad?: string;
-    act_puntaje_max?:string;
-    act_puntaje_min?:string;
-    act_puntaje_alcanzado?: string;
-    act_estado?: string;
+    act_nombre:string="";
+    act_descripcion: string="";
+    act_dificultad: string="";
+    act_puntaje_max:string="";
+    act_puntaje_min:string="";
+    act_puntaje_alcanzado: string="";
+    act_estado: string="";
     //recursos:Recursos ;
     aprendizaje:tipoAprendizaje;
 

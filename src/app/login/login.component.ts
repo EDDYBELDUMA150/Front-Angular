@@ -40,21 +40,6 @@ export class LoginComponent {
     }
 }
 
-
-login(modeloUsu:Usuarios){
-  if(modeloUsu.correo!="" && modeloUsu.usu_contra!=""){
-    this.loginUs.getUsuarioUserPass(this.modeloUsuario).subscribe(data=>{
-      if(data!=null){
-     
-      this.modeloUsuario=data;
-      
-      //Inicio de sesion exitoso
-      Swal.fire(`Inicio de sesion exitoso`,'success')
-      this.router.navigate(['/inicio']);
-        console.log("Bienvenido");
-    }else{
-      Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error')
-
 login(modeloUsu: Usuarios) {
   if (modeloUsu.correo !== '' && modeloUsu.usu_contra !== '') {
     this.autenticacionService.login(modeloUsu.correo, modeloUsu.usu_contra).subscribe(
@@ -76,7 +61,6 @@ login(modeloUsu: Usuarios) {
           }
         } else {
           Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');
-
         }
       },
       (error) => {
@@ -120,9 +104,4 @@ login(modeloUsu: Usuarios) {
   public get f():any {
      return this.myForm.controls; 
     }  
-  } 
-
-
-  
-
-  
+  }

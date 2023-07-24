@@ -1,22 +1,36 @@
 
 <h1 style="color: rgb(78, 21, 119);">Administrar Actividades</h1>
 <div class="col-md-12 p-2">
-  <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    <i class="fa fa-save"></i> Nueva Actividad
-  </button>
+  <div class="d-flex align-items-center">
+    <div class="flex-grow-1">
+      <div class="row">
+        <div class="col-md-4">
+          <input type="text" class="form-control" [(ngModel)]="buscarCodigo" placeholder="CODIGO" (keyup)="buscarUsuarioPorCodigo()">
+        </div>
+        <div class="col-md-8">
+          <input type="text" class="form-control" [(ngModel)]="buscarTexto" placeholder="Buscar actividad" (keyup)="buscarActividad()">
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
   <table class="table mt-2 table-bordered" style="margin: rigth 0; ">
     <thead class="table-primary">
       <tr>
-        <th>Id</th>
-        <th>Actividad</th>
-        <th>Descripcion</th>
-        <th>Dificultad</th>
-        <th>Puntaje max</th>
-        <th>Pantaje min</th>
-        <th>Puntaje alcanzado</th>
-        <th>Estado</th>
-        <th>Tipo aprendizaje</th>
-        <th>Recursos</th>
+        <th>CODIGO</th>
+        <th>ACTIVIDAD</th>
+        <th>DESCRIPCION</th>
+        <th>DIFICULTAD</th>
+        <th>PUNTAJE MAX</th>
+        <th>PUNTAJE MIN</th>
+        <th>PUNTAJE ALCANZADO</th>
+        <th>ESTADO</th>
+        <th>TIPO DE APRENDIZAJE</th>
+        <th>RECURSOS</th>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +43,6 @@
         <td>{{item.act_puntaje_min}}</td>
         <td>{{item.act_puntaje_alcanzado}}</td>
         <td>{{item.act_estado}}</td>
-       /////////////////////////////////////se elimino lo que voy a poner en mi bloc de notas
         <td>{{item.aprendizaje.id_tipo_apren}}</td>
        
         
@@ -64,96 +77,4 @@
   </div>
 </div>
 <!-- TODO: Modals -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 *ngIf="!isupdate" class="modal-title fs-5">Nuevo </h1>
-        <h1 *ngIf="isupdate" class="modal-title fs-5">Modificar</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newAprendizaje()"></button>
-      </div>
-      <div class="modal-body">
-          <form [formGroup]="formactiv">
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Id</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="id_ctiv">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Nombre Actividad</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="activ_nombre">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Descripción</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="activ_descripcion">
-                  </div>
-              </div>
-              <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Dificultad</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="act_dificultad">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Puntaje Máximo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="act_puntaje_max">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Puntaje Mínimo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="act_puntaje_min">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Puntaje Alcanzado</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="act_puntaje_alcanzado">
-                </div>
-              </div>
-              <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Estado</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="act_estado">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-2 col-form-label">Aprendizaje</label>
-                <div class="col-sm-10">
-                    <select   class="form-control" formControlName="id_recurso">
-                        <option value="" selected disabled>Seleccione un Aprendizaje</option>
-                        <option *ngFor="let aprendizaje of aprendizaje" [value]="aprendizaje.id_tipo_apren">{{aprendizaje.tapr_nombre }}</option>
-                      </select>
-                  </div>
-           
-          </div>
-              <div class="form-group">
-                <label class="col-sm-2 col-form-label">Recursos</label>
-                <div class="col-sm-10">
-                    <select   class="form-control" formControlName="id_recurso">
-                        <option value="" selected disabled>Seleccione un recurso</option>
-                        <option *ngFor="let recurso of recursos" [value]="recurso.id_recurso">{{recurso.id_recurso }}</option>
-                      </select>
-                  </div>
-              </div> 
-                 
-              
-            
-             
 
-              
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-        <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
-        <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
-      </div>
-    </div>
-  </div>
-</div>
