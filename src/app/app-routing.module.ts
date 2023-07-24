@@ -9,7 +9,7 @@ import { DirectivaComponent } from './directiva/directiva.component';
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
-import { EstadoAppComponent } from './estado-app/estado-app.component';
+//import { EstadoAppComponent } from './estado-app/estado-app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.component';
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
@@ -68,12 +68,12 @@ const routes: Routes = [
       
        
     },
-    {
-      path:'estado-app',
-      component: EstadoAppComponent
+//{
+     // path:'estado-app',
+      //component: EstadoAppComponent
       
        
-   },
+   //},
    {  
      path:'scroll',
     component: ScrolldeshaboardComponent

@@ -1,56 +1,107 @@
-<header></header>
-<section class="card-section-imagia">
-    <h2><u>Acerca de Nosotros</u></h2>
-    <div class="container">
-        <div class="row">
-            <div *ngFor="let nosotros of nosotros" class="col-sm-6 col-md-6">
-                <div class="card-container-imagia">
-                    <div class="card-imagia">
-                        <div class="front-imagia">
-                            <div class="cover-imagia"><img alt src="https://img.freepik.com/fotos-premium/fondo-codigo-binario-tecnologia-abstracta-datos-binarios-digitales-concepto-datos-seguros-3d_357568-2709.jpg" /></div>
-                            <br>
-                            <div class="content-imagia"style="display:flex;text-align:center">
-                                <b>
-                                    <p 
-                                    style="text-align:left;
-                                    margin-left:100px;">
-                                     <img class="img-circle" alt src="{{nosotros.imagen}}" style="width:170px;height:180px"/>
-                                    </p>
-                                    </b>                                    
-                                    <b style="text-align:rigth;
-                                    margin-left:50px">
-                                        <p class="subtitle-imagia">Estudiante </p>
-                                        <h3 class="name-imagia">{{nosotros.nombre}}</h3>
-                                        <p class="text-center"><em>                                 
-                                            --------- * --------- 
-                                            <br>Curso: Matutino 4to B <br>
-                                            Edad: {{nosotros.edad}}<br>
-                                            </em></p>
-                                    </b>                              
-                            </div>
-                            <div class="footer-imagia"><span><i class="fa fa-plus"></i> Mas Informacion</span></div>
-                        </div>
-                        <div class="back-imagia">
-                            <div class="content-imagia content-back-imagia">
-                                <div>
-                                    <h3 class="text-center">Opinión:</h3>
-                                    <p class="text-center">
-                                        {{nosotros.opnion}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="footer-imagia">
-                                <div class="social-imagia text-center"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color:  #ffffff">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+      <img src="assets/imagenes/leoleo.jpeg" alt="Logo" width="290" height="95">
+    </a>
 
-            
-        </div>   
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">    
+      </ul>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="nosotros.component.css"> <!-- Enlaza tu hoja de estilos personalizada -->
+<title>Custom Button</title>
+<form class="d-flex" role="search">
+  <button class="btn-custom-green" routerLink="/home" type="submit">Home</button>
+</form>
+
+<form class="d-flex" role="search">
+  <button class="btn-custom-green" routerLink="/nosotros" type="submit">Conócenos</button>
+</form>
+
+<form class="d-flex" role="search">
+  <button class="btn-custom-green" routerLink="/login" type="submit">Iniciar Sesión</button>
+</form>
+
+      
+
     </div>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </div>
+</nav>
+
+
+<div>
+
+<body  style="background-color:  rgba(152, 128, 186, 0.19)">
+
+  <div class="message">
+    <h2>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+      Equipo de Desarrollo</h2>
+      </div> 
+
+ <section class="card-section-imagia"  style="background-color:  rgba(152, 128, 186, 0.19)">
+
+  <div class="container">
+      <div class="row">
+          <div *ngFor="let nosotros of nosotros" class="col-sm-6 col-md-6">
+              <div class="card-container-imagia">
+                  <div class="card-imagia">
+                      <div class="front-imagia">
+                          <div class="cover-imagia"><img src="assets/imagenes/header.jpg" alt="Logo" width="10" height="10"/></div>
+                          <br>
+                          <div class="content-imagia"style="display:flex;text-align:center">
+                              <b>
+                                  <p 
+                                  style="text-align:left;
+                                  margin-left:100px;">
+                                   <img class="img-circle" alt src="{{nosotros.imagen}}" style="width:170px;height:180px"/>
+                                  </p>
+                                  </b>                                    
+                                  <b style="text-align:rigth;
+                                  margin-left:50px">
+                                      <p class="subtitle-imagia">Programador</p>
+                                      <p class="name-imagia">{{nosotros.nombre}}</p>
+                                      <div class="welcome-inte"></div>
+                                      <p class="text-center"><em>                                 
+                                          ______________ 
+                                          <div class="welcome-inter"></div>
+                                          <br>Curso: Matutino 5to B <br>
+                                          Edad: {{nosotros.edad}}<br>
+                                          </em></p>
+                                  </b>                              
+                          </div>
+                          <div class="footer-imagia"><span><i class="fa fa-plus"></i> Más Información</span></div>
+                      </div>
+                      <div class="back-imagia">
+                          <div class="content-imagia content-back-imagia">
+                              <div>
+                                  <h3 class="text-center">Frase:</h3>
+                                  <p class="text-center">
+                                      {{nosotros.opnion}}
+                                  </p>
+                              </div>
+                          </div>
+                          <div class="footer-imagia">
+                              <div class="social-imagia text-center"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          
+      </div>   
+  </div>
+  
 </section>
-<footer></footer>
+</body>
+</div>
+<app-footer></app-footer>

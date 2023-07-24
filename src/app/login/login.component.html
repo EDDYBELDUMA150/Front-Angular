@@ -1,4 +1,4 @@
-<div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%;height: 700px;">
+<div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%;height: 800px;">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
@@ -6,7 +6,7 @@
                     <div class="card-body p-0">
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background-image: url('assets/imagenes/logoloroSS.jpg');  width: 300px; height: 360px;"></div>
+                                <div class="flex-grow-1 bg-login-image" style="background-image: url('assets/imagenes/logoloroSS.png'); background-size: cover; width: 300px; height: 360px;"></div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
@@ -27,13 +27,14 @@
                                               </div>
                                             </div>
                                         
-                                        <div class="mb-3">
-                                            <div class="custom-control custom-checkbox small"></div>
-                                        </div><button class="btn btn-primary d-block btn-user w-100 .message button" type="submit" (click)="login(modeloUsuario)">Iniciar Sesión</button>
+                                      
+                                        <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="submit" (click)="login(modeloUsuario)">Iniciar Sesión</button>
+                                        <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="submit"  routerLink="/home">Regresar</button>
+                                        
                                         <hr />
-                                        <hr />
+                                        <div class="text-center"><a class="small" style="color: #4a4aee;">Si olvidaste tu contraseña o usuario ponte en contacto con los administradores</a></div>
                                     </form>
-                                    <div class="text-center"><a class="small" routerLink="/not-found"  style="color: #4a4aee;">Has olvidado tu contraseña?</a></div>
+                                    
                                 </div>
                             </div>
                         </div>
