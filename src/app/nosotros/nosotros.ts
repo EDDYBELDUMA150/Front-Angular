@@ -2,13 +2,13 @@ export const datosChicos = [
     {
         "nombre": "Eddy Belduma",
         "imagen": "assets/imagenes/nosotros/eddy.jpg",
-        "opnion": "La inteligencia es la habilidad de adaptarse a los cambios",
+        "opnion": "Es genial trabajar con ordenadores. No discuten, lo recuerdan todo y no se beben tu cerveza",
         "edad": " 19 Años"
     },
     {
         "nombre": "Liliana Cochancela",
         "imagen": "assets/imagenes/nosotros/lili.jpg",
-        "opnion": "Los ordenadores son como los bikinis. Ahorran a la gente el hacer muchas conjeturas",
+        "opnion": "El Internet es tan grande, tan poderoso y sin sentido que para algunas personas es un sustituto completo para toda la vidas",
         "edad": " 20 Años"
     },
     {
@@ -20,7 +20,7 @@ export const datosChicos = [
     {
         "nombre": "Raul Luna",
         "imagen": "assets/imagenes/nosotros/raul.jpeg",
-        "opnion": "El buen código es su mejor documentación",
+        "opnion": "Los mejores desarrolladores de software son los que verdaderamente disfrutan mas con lo que hacen",
         "edad": " 21 Años"
     },
     {

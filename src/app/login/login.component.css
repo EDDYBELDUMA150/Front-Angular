@@ -1,7 +1,8 @@
-.message button {
+.btn-custom-green {
     padding: 1rem;
     font-weight: 400;
-    background-color: #4a4aee;
+    background-color: rgb(155, 98, 230);
+    border-color: rgb(84, 10, 180);
     border-radius: 2rem;
     border: none;
     outline: none;
@@ -9,5 +10,16 @@
     font-size: .9rem;
     margin-top: 2rem;
     transition: all .3s ease-in;
-    color: #fff;
-}
+    color: rgb(255, 255, 255);
+}                                                                                                           
+
+.btn-custom-green:hover {
+    background-color: rgb(78, 21, 119); /* Cambiar el color de fondo a más oscuro */
+    color: rgb(195, 225, 172);
+  }
+
+.welcome-inter {
+    height: 100px; 
+  }
+
+
