@@ -4,8 +4,8 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AutenticacionService } from 'src/app/shared/autenticacion.service';
-import { Usuarios } from 'src/app/usuarios/Usuarios';
 import { HeaderComponent } from 'src/app/header/header.component';
+import { Usuarios } from '../modelo/Usuarios';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
   public myForm!:FormGroup;
 
   modeloUsuario:Usuarios=new Usuarios();
-  constructor(private fb: FormBuilder, private router: Router, private loginUs: AutenticacionService) { }
+  constructor(private fb: FormBuilder, private router: Router, private autenticacionService: AutenticacionService) { }
 
   ngOnInit(): void {
     this.myForm = this.createMyForm();
@@ -42,7 +42,7 @@ export class LoginComponent {
 
 login(modeloUsu: Usuarios) {
   if (modeloUsu.correo !== '' && modeloUsu.usu_contra !== '') {
-    this.loginUs.login(modeloUsu.correo, modeloUsu.usu_contra).subscribe(
+    this.autenticacionService.login(modeloUsu.correo, modeloUsu.usu_contra).subscribe(
       (data) => {
         if (data !== null) {
           const rol = data.rol; // Access 'rol' from the 'data' object
@@ -50,11 +50,14 @@ login(modeloUsu: Usuarios) {
           if (rol === 1) {
             // Admin login successful
             Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
+            this.autenticacionService.setUsuarioLogueado(data);
             this.router.navigate(['/perfil-admin/scroll']);
           } else if (rol === 2) {
             // Player login successful
             Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
+            this.autenticacionService.setUsuarioLogueado(data);
             this.router.navigate(['/ventanaj/scroll']);
+            
           }
         } else {
           Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');

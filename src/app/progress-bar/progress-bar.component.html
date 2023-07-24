@@ -1,112 +1,94 @@
 <body>
-    <div class="container">
-      <div class="row">
-        <!-- Primera columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje con Juegos</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-1">
-                <div class="fill-1"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-1"></div>
-              </div>
-              <div class="inside-circle">85%</div>
+  <div class="container">
+    <div class="row">
+      <!-- Primera columna - Aprendizaje con Logico -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Logico</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-1">
+              <div class="fill-1" [style.transform]="getProgresoTransform(1)"></div>
             </div>
-          </div>
-        </div>
-  
-        <!-- Segunda columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje con Logica</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-2">
-                <div class="fill-2"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-2"></div>
-              </div>
-              <div class="inside-circle">65%</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Tercera columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje con Comprension</h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-3">
-                <div class="fill-3"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-3"></div>
-              </div>
-              <div class="inside-circle">75%</div>
-            </div>
-          </div>
-        </div>
-  
-        <!-- Cuarta columna -->
-        <div class="col-md-3">
-          <h2>Aprendizaje Memoristico </h2>
-          <div class="circle-wrap">
-            <div class="circle">
-              <div class="mask full-4">
-                <div class="fill-4"></div>
-              </div>
-              <div class="mask half">
-                <div class="fill-4"></div>
-              </div>
-              <div class="inside-circle">10%</div>
-            </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(1) }}%</div>
           </div>
         </div>
       </div>
-      
+
+      <!-- Primera columna - Aprendizaje con Juegos -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Juegos</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-1">
+              <div class="fill-1" [style.transform]="getProgresoTransform(2)"></div>
+            </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(2) }}%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primera columna - Aprendizaje con  -->
+      <div class="col-md-3">
+        <h2>Aprendizaje con Comprencsion</h2>
+        <div class="circle-wrap">
+          <div class="circle">
+            <div class="mask full-1">
+              <div class="fill-1" [style.transform]="getProgresoTransform(2)"></div>
+            </div>
+            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(2) }}%</div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+
+
+
+  <div class="col-md-3 justify-content-center"> <!-- Agrega la clase justify-content-center -->
+    <h2 class="text-center">PROGRESO GENERAL</h2>
+    <div class="progress">
+      <div class="progress-bar" style="width:75%;">
+        <span class="progress-bar-text">75%</span>
+      </div>
     </div>
 
-   
-        <div class="col-md-3 justify-content-center"> <!-- Agrega la clase justify-content-center -->
-          <h2 class="text-center">PROGRESO GENERAL</h2>
-          <div class="progress">
-            <div class="progress-bar" style="width:75%;">
-                <span class="progress-bar-text">75%</span>
-            </div>
-        </div>
-          
-             </div>
-        <div class="inside-circle5"></div>
-        <div class="card">
-            <!--CARD PARA MOSTRAR INFORMACION SOBRE EL JUEGO -->
-            <header>
-              <time
-            datetime="2018-05-15T19:00">FECHA ACTUAL</time>
-              <div class="logo">
-                <span>
-                  <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 234.5 53.7"><style>.st0{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}</style><path d="M.6 1.4L116.9 52l117-50.6" class="st0"/></svg>
-                </span>USER EN EL Juego</div>
-              <div class="sponsor">@yoleoconlorenzo</div>
-            </header>
-            <div class="announcement">
-              <h1>INFORMACION</h1>
-              <h3 class="italic">Fecha inicio:  </h3>
-              <h3 class="italic">Fecha finalizacion:</h3>
-              <h3 class="italic"></h3>
-              <h3 class="italic"></h3>
-            </div>
-          </div>
-          
-          <div class="inspiration">
-            <a rel="noopener" target="_blank" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/heartland.jpg">Inspiration</a>
-          </div>
-      
-       
+  </div>
+  <div class="inside-circle5"></div>
+  <div class="card">
+    <!--CARD PARA MOSTRAR INFORMACION SOBRE EL JUEGO -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover custom-table">
+        <thead>
+          <tr>
+            <th>Fecha de inicio</th>
+            <th>Fecha Actual</th>
+            <th>Jugador Nombre</th>
+            <th>Puntaje General</th>
+            <!-- Agrega más encabezados si tienes más datos para mostrar en la tabla -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{usuarioLogueado.jugador.usuarios.usu_fecha_inic}}</td>
+            <td></td>
+            <td>{{usuarioLogueado.jugador.player_nombre}}</td>
+            <td></td>
+            <!-- Agrega más celdas con los datos correspondientes -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="inspiration">
+    <a rel="noopener" target="_blank"
+      href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/heartland.jpg">Inspiration</a>
+  </div>
 
-      
-      
-    
-  </body>
-  
+
+
+
+
+
+</body>

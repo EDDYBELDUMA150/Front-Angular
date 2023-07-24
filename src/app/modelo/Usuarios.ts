@@ -1,6 +1,8 @@
 import { Jugador } from "../modelo/Jugador";
 import { Roles } from "./Roles";
 
+
+
 export class Usuarios{
     id_usuario:number=0;
     usu_nombre:string="";
@@ -9,8 +11,7 @@ export class Usuarios{
     usu_nivelacademico="";
     roles: Roles; 
     
-    jugador?: Jugador;
-  usuarios: any;
+   
     Usuarios(){}
 
     constructor() {
@@ -19,4 +20,3 @@ export class Usuarios{
       }
    
 }
-    

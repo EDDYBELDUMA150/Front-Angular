@@ -389,4 +389,23 @@ img {
   height: auto;
   width: 100%;
 }
-  
+/*Diseño de la tabla para mostrar los datos del jugador y las fecha*/
+.custom-table {
+  background-color: white;
+}
+
+/* Estilos para los encabezados de la tabla */
+.custom-table thead th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilos para las celdas del cuerpo de la tabla */
+.custom-table tbody td {
+  background-color: white;
+}
+
+/* Estilos para resaltar las filas al pasar el mouse sobre ellas */
+.custom-table tbody tr:hover {
+  background-color: #cfe2ff;
+}
