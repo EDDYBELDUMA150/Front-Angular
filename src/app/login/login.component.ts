@@ -75,7 +75,14 @@ export class LoginComponent {
   }
   
   public get f():any {
-    return this.myForm.controls; 
-   }  
 
-}
+     return this.myForm.controls; 
+    }  
+
+  } 
+
+  
+
+
+ 
+
