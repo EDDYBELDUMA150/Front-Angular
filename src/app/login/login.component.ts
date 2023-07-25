@@ -19,6 +19,8 @@ export class LoginComponent {
 
   modeloUsuario:Usuarios=new Usuarios();
   constructor(private fb: FormBuilder, private router: Router, private autenticacionService: AutenticacionService) { }
+  
+ 
 
   ngOnInit(): void {
     this.myForm = this.createMyForm();
@@ -57,7 +59,7 @@ login(modeloUsu: Usuarios) {
             Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
             this.autenticacionService.setUsuarioLogueado(data);
             this.router.navigate(['/ventanaj/scroll']);
-            
+
           }
         } else {
           Swal.fire('Inicio de Sesión Fallido', `Usuario o contraseña incorrectos`, 'error');
@@ -72,6 +74,7 @@ login(modeloUsu: Usuarios) {
     Swal.fire('Inicio de Sesión Fallido', 'Ingrese los datos', 'warning');
   }
 }
+
 
 /*login1() {
   if (this.correo !== '' && this.usu_contra !== '') {
@@ -105,8 +108,3 @@ login(modeloUsu: Usuarios) {
      return this.myForm.controls; 
     }  
   } 
-
-
-  
-
-  

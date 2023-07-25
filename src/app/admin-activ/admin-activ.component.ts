@@ -26,6 +26,7 @@ export class AdminActivComponent {
   constructor(private adminActivService: AdminActivService) {}
 
   ngOnInit(): void {
+    this.cargarActividades()
     this.obtenerAprendizaje();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();

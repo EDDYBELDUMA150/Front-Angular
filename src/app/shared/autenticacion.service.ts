@@ -12,9 +12,9 @@ import { Usuarios } from '../modelo/Usuarios';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  usuarioLogueado?: Usuarios;
+  usuarioLogueado: Usuarios | undefined;
   private URLlistarUsu: string = 'http://localhost:8080/api';
-  private URLLogin: string='http://localhost:8080/api/usuarios/login2';
+  private URLLogin: string='http://localhost:8080/api/usuarios/loging';
   constructor(private http: HttpClient, private router: Router) { }
 
   obtenerUsuarioRol(): Observable<Usuarios[]>{
@@ -27,7 +27,7 @@ export class AutenticacionService {
     }*/
 
     login(correo: string, usu_contra: string): Observable<any> {
-      console.log(usu_contra, correo);
+      console.log(correo, usu_contra);
       console.log(this.URLLogin);
     
       // Construye los parámetros de consulta
@@ -39,8 +39,15 @@ export class AutenticacionService {
       return this.http.get<any>(this.URLLogin, { params });
     }
 
+    
+    
+    
+    
+    
+    
+
     // Método para establecer los datos del usuario logueado
-   // Método para establecer los datos del usuario logueado
+   // Método para establecer los datos del usuario loguead
    setUsuarioLogueado(usuario: Usuarios): void {
     this.usuarioLogueado = usuario;
   }
