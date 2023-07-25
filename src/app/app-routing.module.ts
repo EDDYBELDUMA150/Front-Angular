@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { RecursosComponent } from './recursos/recursos.component';
 import { AprendizajeComponent } from './aprendizaje/aprendizaje.component';
 import { DirectivaComponent } from './directiva/directiva.component';
-import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { VerUserRolComponent } from './ver-user-rol/ver-user-rol.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -14,7 +13,12 @@ import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.c
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { EstadoApp1Component } from './estado-app1/estado-app1.component';
+<<<<<<< HEAD
+import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { NivelesComponent } from './niveles/niveles.component';
+=======
+import { NivelesComponent } from './niveles/niveles.component';
+>>>>>>> 046afe8971effaacfa1a844204514ccbcaeab683
 
 ////
 

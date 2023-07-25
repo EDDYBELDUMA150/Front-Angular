@@ -1,46 +1,48 @@
-<div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%;height: 800px;">
+<div class="d-flex d-xl-flex align-items-center align-items-xl-center" style="width: 100%; height: 800px;">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-9 col-lg-12 col-xl-10">
-                <div class="card shadow-lg o-hidden border-0 my-5">
-                    <div class="card-body p-0">
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-flex">
-                                <div class="flex-grow-1 bg-login-image" style="background-image: url('assets/imagenes/logoloroSS.png'); background-size: cover; width: 300px; height: 360px;"></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h4 class="text-dark mb-4"> Bienvenido!</h4>
-                                    </div>
-                                    <form class="user" [formGroup]="myForm">
-                                        <div class="mb-3" >
-                                            <input id="exampleInputEmail" class="form-control form-control-user"formControlName="email" name="a" [(ngModel)]="modeloUsuario.correo" [class.is-invalid]="f.email.touched && f.email.errors" type="email" aria-describedby="emailHelp" placeholder="Correo Electronico" required />
-                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                                Direccion de correo electronico obligatorio.
-                                              </div>
-                                        </div>
-                                        <div class="mb-3">
-                                            <input id="exampleInputPassword" class="form-control form-control-user"formControlName="password" name="b" [(ngModel)]="modeloUsuario.usu_contra" [class.is-invalid]="f.password.touched && f.password.errors" type="password" placeholder="Contraseña" required/>
-                                            <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                                Contraseña obligatoria.
-                                              </div>
-                                            </div>
-                                        
-                                      
-                                        <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="submit" (click)="login(modeloUsuario)">Iniciar Sesión</button>
-                                        <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="submit"  routerLink="/home">Regresar</button>
-                                        
-                                        <hr />
-                                        <div class="text-center"><a class="small" style="color: #4a4aee;">Si olvidaste tu contraseña o usuario ponte en contacto con los administradores</a></div>
-                                    </form>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <div class="row justify-content-center">
+        <div class="col-md-9 col-lg-12 col-xl-10">
+          <div class="card shadow-lg o-hidden border-0 my-5">
+            <div class="card-body p-0">
+              <div class="row">
+                <div class="col-lg-6 d-none d-lg-flex">
+                  <div class="flex-grow-1 bg-login-image" style="background-image: url('assets/imagenes/logoloroSS.png'); background-size: cover; width: 300px; height: 360px;"></div>
                 </div>
+                <div class="col-lg-6">
+                  <div class="p-5">
+                    <div class="text-center">
+                      <h4 class="text-dark mb-4">Bienvenido!</h4>
+                    </div>
+                    <form class="user" [formGroup]="myForm" (ngSubmit)="onSubmitForm()">
+                      <div class="mb-3">
+                        <input id="exampleInputEmail" class="form-control form-control-user" formControlName="email" name="a" [(ngModel)]="modeloUsuario.correo" [class.is-invalid]="f.email.touched && f.email.errors" type="email" aria-describedby="emailHelp" placeholder="Correo Electronico" required />
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="f.email.touched && f.email.errors">
+                          Direccion de correo electronico obligatorio.
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <input id="exampleInputPassword" class="form-control form-control-user" formControlName="password" name="b" [(ngModel)]="modeloUsuario.usu_contra" [class.is-invalid]="f.password.touched && f.password.errors" type="password" placeholder="Contraseña" required />
+                        <div id="validationServerUsernameFeedback" class="invalid-feedback" *ngIf="f.password.touched && f.password.errors">
+                          Contraseña obligatoria.
+                        </div>
+                      </div>
+  
+                      <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="submit">Iniciar Sesión</button>
+                      <button class="btn  btn-custom-green d-block btn-user w-100 .message button" type="button" routerLink="/home">Regresar</button>
+  
+                      <hr />
+                      <div class="text-center">
+                        <a class="small" style="color: #4a4aee;">Si olvidaste tu contraseña o usuario ponte en contacto con los administradores</a>
+                      </div>
+                    </form>
+  
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  

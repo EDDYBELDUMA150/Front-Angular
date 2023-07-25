@@ -71,6 +71,7 @@ list(){
     this.obtenerAprendizaje();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();
+    this.cargarActividades();
     this.list();
     this.formactiv= new FormGroup({
       id_activ: new FormControl(''),
