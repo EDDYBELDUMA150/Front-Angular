@@ -1,49 +1,45 @@
 <body>
+  
+  
+
+  <!-- Progreso general -->
   <div class="container">
     <div class="row">
-      <!-- Primera columna - Aprendizaje con Logico -->
-      <div class="col-md-3">
-        <h2>Aprendizaje con Lógico</h2>
-        <div class="circle-wrap">
-          <div class="circle">
-            <div class="mask full-1">
-              <div class="fill-1" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(1))"></div>
-            </div>
-            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(1) }}%</div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Segunda columna - Aprendizaje con Juegos -->
-      <div class="col-md-3">
-        <h2>Aprendizaje con Juegos</h2>
-        <div class="circle-wrap">
-          <div class="circle">
-            <div class="mask full-2">
-              <div class="fill-2" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(2))"></div>
-            </div>
-            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(2) }}%</div>
-          </div>
-        </div>
-      </div>
-  
-      <!-- Tercera columna - Aprendizaje con Comprensión -->
-      <div class="col-md-3">
-        <h2>Aprendizaje con Comprensión</h2>
-        <div class="circle-wrap">
-          <div class="circle">
-            <div class="mask full-3">
-              <div class="fill-3" [style.transform]="getProgresoTransform(getProgresoPorTipoAprendizaje(3))"></div>
-            </div>
-            <div class="inside-circle">{{ getProgresoPorTipoAprendizaje(3) }}%</div>
+      <div class="col-md-3 justify-content-center">
+        <h2 class="text-center">Aprendizaje con Logica</h2>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="getProgresoPorTipoAprendizaje1(1) + '%'">
+            <span class="progress-bar-text">{{getProgresoPorTipoAprendizaje1(1)}}%</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 justify-content-center">
+        <h2 class="text-center">Aprendizaje con Juegos</h2>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="getProgresoPorTipoAprendizaje1(2) + '%'">
+            <span class="progress-bar-text">{{getProgresoPorTipoAprendizaje1(2)}}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 justify-content-center">
+        <h2 class="text-center">Aprendizaje con Comprension</h2>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="getProgresoPorTipoAprendizaje1(3) + '%'">
+            <span class="progress-bar-text">{{getProgresoPorTipoAprendizaje1(3)}}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Progreso general -->
   <div class="container">
     <div class="row">
       <div class="col-md-3 justify-content-center">
@@ -76,9 +72,10 @@
         <tbody>
           <tr>
             <td>{{usuarioLogueado.jugador.usuarios.usu_fecha_inic}}</td>
-            <td>{{usuarioLogueado.jugador.usuarios.prog}}</td>
+            <td>{{usuarioLogueado.jugador.progreso.prog_fecha_act}}</td>
             <td>{{usuarioLogueado.jugador.player_nombre}}</td>
             <td>{{usuarioLogueado.jugador.progreso.prog_puntaje_total}}% de 100%</td>
+            
             <!-- Agrega más celdas con los datos correspondientes -->
           </tr>
         </tbody>

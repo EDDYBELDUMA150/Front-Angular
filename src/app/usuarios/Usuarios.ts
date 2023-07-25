@@ -6,14 +6,15 @@ export class Usuarios{
     usu_nombre:String="";
     usu_contra:String="";
     correo:String="";
-
-    
-  
-    usu_nivelacademico="";
+    usu_nivelacademico:String="";
     roles: Roles; 
     
+<<<<<<< HEAD
     jugador?: Jugador;
-  usuarios: any;
+     usuarios: any;
+=======
+  
+>>>>>>> bda46023378c037a51646c709ad93d0fb29b4e9e
     Usuarios(){}
 
     constructor() {

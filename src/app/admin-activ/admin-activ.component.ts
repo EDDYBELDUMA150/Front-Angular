@@ -67,6 +67,7 @@ list(){
 
 
   ngOnInit(): void {
+    this.cargarActividades()
     this.obtenerAprendizaje();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();

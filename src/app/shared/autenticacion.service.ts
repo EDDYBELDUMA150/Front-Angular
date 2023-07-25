@@ -1,59 +1,37 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { map, Observable } from 'rxjs';
-
-
-import { NgFor } from '@angular/common';
-import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Usuarios } from '../modelo/Usuarios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticacionService {
-  usuarioLogueado?: Usuarios;
-  private URLlistarUsu: string = 'http://localhost:8080/api';
-  private URLLogin: string='http://localhost:8080/api/usuarios/login2';
-  constructor(private http: HttpClient, private router: Router) { }
+  private readonly USER_STORAGE_KEY = 'user_data';
 
-  obtenerUsuarioRol(): Observable<Usuarios[]>{
-    return this.http.get<Usuarios[]>(this.URLlistarUsu);
+  constructor(private http: HttpClient) { }
+
+  login(correo: string, usu_contra: string): Observable<any> {
+    const params = new HttpParams()
+      .set('correo', correo)
+      .set('password', usu_contra);
+
+    return this.http.get<any>('http://localhost:8080/api/usuarios/loginR', { params });
   }
 
-  getUsuarioUserPass(usua:Usuarios){
-    return this.http.get<Usuarios>(this.URLlistarUsu+"/usuarios/"+usua.correo+"/"+usua.usu_contra);
+  setUsuarioLogueado(usuario: Usuarios): void {
+    localStorage.setItem(this.USER_STORAGE_KEY, JSON.stringify(usuario));
   }
 
- 
-  //PROBAR CON UN NUEVO METODO LOGIN :(
-    /*logar(loginRequest: Usuarios): Observable<any> {
-      return this.http.post<any>(this.URLLogin, loginRequest);
-    }*/
-
-    login(correo: string, usu_contra: string): Observable<any> {
-      console.log(usu_contra, correo);
-      console.log(this.URLLogin);
-    
-      // Construye los parámetros de consulta
-      const params = new HttpParams()
-        .set('correo', correo)
-        .set('password', usu_contra);
-    
-      // Realiza la solicitud GET con los parámetros de consulta
-      return this.http.get<any>(this.URLLogin, { params });
-    }
-
-    // Método para establecer los datos del usuario logueado
-   // Método para establecer los datos del usuario logueado
-   setUsuarioLogueado(usuario: Usuarios): void {
-    this.usuarioLogueado = usuario;
+  getUsuarioLogueado(): Usuarios | null {
+    const userDataJSON = localStorage.getItem(this.USER_STORAGE_KEY);
+    return userDataJSON ? JSON.parse(userDataJSON) : null;
   }
 
-  // Método para obtener los datos del usuario logueado
-  getUsuarioLogueado(): Usuarios | undefined {
-    return this.usuarioLogueado;
+  clearUsuarioLogueado(): void {
+    localStorage.removeItem(this.USER_STORAGE_KEY);
   }
 }
+
  
   

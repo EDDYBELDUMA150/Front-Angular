@@ -30,13 +30,9 @@
 
             <th>CODIGO</th>
             <th>NOMBRE</th>
-           
             <th>CORREO</th>
             <th>Contraseña</th>
             <th>NIVEL ACADEMICO</th>
-          
-           
-
             <th>Rol</th>
             
 
@@ -162,8 +158,8 @@
 
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"> Close</button>
             <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
-            <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="updateee()">Update</button>
-
+            <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
+           
           </div>
         </div>
       </div>
