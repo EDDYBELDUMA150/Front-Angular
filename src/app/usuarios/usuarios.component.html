@@ -27,11 +27,16 @@
       <table class="table mt-2 table-bordered">
         <thead class="table-primary">
           <tr>
-            <th>Código</th>
-            <th>Nombre</th>
+
+            <th>CODIGO</th>
+            <th>NOMBRE</th>
+           
+            <th>CORREO</th>
             <th>Contraseña</th>
-            <th>Correo</th>
-            <th>Nivel Académico</th>
+            <th>NIVEL ACADEMICO</th>
+          
+           
+
             <th>Rol</th>
             
 
@@ -41,8 +46,11 @@
           <tr *ngFor="let item of usuarios">
             <td>{{item.id_usuario}}</td>
             <td>{{item.usu_nombre}}</td>
-            <td>no visible</td>
             <td>{{item.correo}}</td>
+
+            <td>no visible</td>
+
+          
             <td>{{item.usu_nivelacademico}}</td>
             <td>{{item.roles.rol_nombre }}</td>
 
@@ -85,7 +93,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h1 *ngIf="!isupdate" class="modal-title fs-5">Crear Usuario</h1>
-            <h1 *ngIf="isupdate" class="modal-title fs-5">Crear Usuario</h1>
+            <h1 *ngIf="isupdate" class="modal-title fs-5">Editar Usuario</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="newUsuario()"></button>
           </div>
           <div class="modal-body">
@@ -135,7 +143,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 col-form-label">Rol</label>
                     <div class="col-sm-10">
-                        <select   class="form-control" formControlName="id_rol"  required>
+                        <select   class="form-control" formControlName="id_rol" >
                             <option value="" selected disabled>Seleccione un rol</option>
                             <option *ngFor="let rol of roles" [value]="rol.id_rol">{{ rol.rol_nombre }}</option>
                           </select>
@@ -149,9 +157,13 @@
                 </form>
           </div>
           <div class="modal-footer">
+
+        
+
             <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal"> Close</button>
             <button *ngIf="!isupdate" type="button" class="btn btn-success btn-sm"(click)="savee()">Save</button>
             <button *ngIf="isupdate" type="button" class="btn btn-warning btn-sm" (click)="update()">Update</button>
+           
           </div>
         </div>
       </div>

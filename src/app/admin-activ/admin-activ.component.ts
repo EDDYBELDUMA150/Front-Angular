@@ -25,11 +25,53 @@ export class AdminActivComponent {
   isupdate: boolean=false;
   constructor(private adminActivService: AdminActivService) {}
 
+  buscarTexto: string = '';
+buscarCodigo: number=0;
+
+
+buscarActividad() {
+  const textoBusqueda = this.buscarTexto.trim().toLowerCase();
+
+  if (textoBusqueda === '') {
+    this.list();
+  } else {
+    this.actividades = this.actividades.filter(actividades =>
+      actividades.act_nombre.toLowerCase().includes(textoBusqueda) ||
+      actividades.act_descripcion.toLowerCase().includes(textoBusqueda)
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////
+buscarUsuarioPorCodigo() {
+  const codigoBusqueda = this.buscarCodigo.toString().trim();
+
+  if (codigoBusqueda === '') {
+    this.list();
+  } else {
+    this.actividades = this.actividades.filter(actividades =>
+      actividades.id_activ.toString().includes(codigoBusqueda)
+    );
+  }
+}
+
+list(){
+  this.adminActivService.ListarActividad().subscribe(resp=>{
+       if(resp){
+        this.actividades=resp;
+       }
+  });
+}
+
+
+
+
   ngOnInit(): void {
     this.cargarActividades()
     this.obtenerAprendizaje();
     this.cargarRecursos();
     this.cargarTiposAprendizaje();
+    this.list();
     this.formactiv= new FormGroup({
       id_activ: new FormControl(''),
       act_nombre: new FormControl(''),
@@ -106,7 +148,7 @@ export class AdminActivComponent {
       // Asigna el id_recurdo y id_aprendizaje  al objeto actividad
   
       actividad.aprendizaje = new tipoAprendizaje (id_tipo_apren,"recurso",0);;
-      actividad.recursos= new Recursos(id_recurso,"Leer");;
+      //actividad.recursos= new Recursos(id_recurso,"Leer");;
       //console.log("despues del rol");
       
   

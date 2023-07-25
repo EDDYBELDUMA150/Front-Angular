@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable, map } from 'rxjs';
-import { Recursos } from '../modelo/Recursos';
 
+import { Recursos } from '../modelo/Recursos';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,7 +24,7 @@ export class RecursosService {
     )
   }
 
-  postRecursos(request: FormData): Observable<any> {
+  postRecursos(request: any): Observable<any> {
     return this.http.post<any>(this.UrlListar + '/create', request);
   }
   
@@ -45,6 +47,26 @@ export class RecursosService {
       map(response => response as Recursos[])
     );
   }
+
+
+  //////////////////////imagen
+  subirFoto(archivo: File, id: any): Observable<Recursos>{
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("id", id);
+    return this.http.post(`${this.UrlListar}/upload/`, formData).pipe(
+      map((response: any) => response.recursos as Recursos), 
+      catchError(e => {
+        console.error(e.error.mensaje);
+        Swal.fire(e.error.mensaje, e.error.error, 'error');
+        return throwError(e);
+      })
+      );
+  }
   
+  
+
+  
+
 
 }

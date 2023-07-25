@@ -1,1 +1,33 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
+.image-upload-container {
+    border: 3px solid rgb(6, 16, 102);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  .image-preview {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  /* styles.css o styles.scss */
+.nombre-celda {
+  /* Establecer un ancho máximo para la celda */
+  max-width: 200px; /* Ajusta el valor según el ancho deseado */
+
+  /* Hacer que el texto se trunque con puntos suspensivos */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

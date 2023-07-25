@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuarios } from './Usuarios';
 import { UsuariosService } from './usuarios.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Roles } from './Roles';
 @Component({
@@ -56,9 +56,6 @@ buscarUsuarioPorCodigo() {
   }
 }
 
-////////////////////////////////////////////////////////////////////
-
-
 
 
 
@@ -67,7 +64,6 @@ buscarUsuarioPorCodigo() {
   isupdate: boolean=false;
 
     ngOnInit(): void{ 
-
     
     this.obtenerRoles();
     this.list();
@@ -112,7 +108,6 @@ savee() {
     console.log("despues del rol");
 
 
-
     this.usuariosService.create(usuario).subscribe(
       (resp) => {
         this.list();
@@ -128,6 +123,7 @@ savee() {
     Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     this.formUsuarios.markAllAsTouched();
   }
+  this.formUsuarios.get('usu_contra')?.enable();
 }
 
 editar() {
@@ -192,6 +188,7 @@ editar() {
       Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     }
   }
+ 
   
 
 
@@ -226,7 +223,7 @@ editar() {
 
 
 
-
+ 
 
   newUsuario(){
     this.isupdate=false;
@@ -242,6 +239,9 @@ editar() {
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado
    
+
+     // Deshabilitar el campo de contraseña para edición
+     this.formUsuarios.get('usu_contra')?.disable();
 
   }
 

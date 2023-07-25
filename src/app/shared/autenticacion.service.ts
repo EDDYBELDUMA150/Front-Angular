@@ -20,6 +20,11 @@ export class AutenticacionService {
   obtenerUsuarioRol(): Observable<Usuarios[]>{
     return this.http.get<Usuarios[]>(this.URLlistarUsu);
   }
+
+  getUsuarioUserPass(usua:Usuarios){
+    return this.http.get<Usuarios>(this.URLlistarUsu+"/usuarios/"+usua.correo+"/"+usua.usu_contra);
+  }
+
  
   //PROBAR CON UN NUEVO METODO LOGIN :(
     /*logar(loginRequest: Usuarios): Observable<any> {
