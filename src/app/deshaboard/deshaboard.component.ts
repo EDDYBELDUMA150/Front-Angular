@@ -1,6 +1,8 @@
 import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import Popper from 'popper.js';
+import { AutenticacionService } from '../shared/autenticacion.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-deshaboard',
@@ -10,9 +12,13 @@ import Popper from 'popper.js';
 export class DeshaboardComponent implements AfterViewInit {
   @ViewChild('navbarDropdown') navbarDropdown!: ElementRef;
   @ViewChild('dropdownMenu') dropdownMenu!: ElementRef;
-  
-  constructor(private router: Router) {}
-
+  usuarioLogueado?: any;
+  constructor(private router: Router ,private autenticacionService: AutenticacionService , private http:HttpClient) {}
+  ngOnInit(): void {
+    this.usuarioLogueado = this.autenticacionService.getUsuarioLogueado();
+    
+    
+  }
   cargarContenido() {
     this.router.navigate(['/recursos#catalina']);
   }

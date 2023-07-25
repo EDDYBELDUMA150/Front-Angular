@@ -11,7 +11,7 @@ import { Jugador } from '../modelo/Jugador';
 })
 export class VentanaJugadorComponent {
 
-  usuarioLogueado?: any; // Cambia el tipo 'any' al tipo correcto según la estructura del objeto del usuario logueado
+ usuarioLogueado?: any; // Cambia el tipo 'any' al tipo correcto según la estructura del objeto del usuario logueado
    
   constructor(private autenticacionService: AutenticacionService , private router: Router) { }
   

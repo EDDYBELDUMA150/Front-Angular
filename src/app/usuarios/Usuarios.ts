@@ -13,7 +13,7 @@ export class Usuarios{
     roles: Roles; 
     
     jugador?: Jugador;
-  usuarios: any;
+     usuarios: any;
     Usuarios(){}
 
     constructor() {
