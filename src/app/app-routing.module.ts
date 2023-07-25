@@ -13,12 +13,8 @@ import { ScrolldeshaboardComponent } from './scrolldeshaboard/scrolldeshaboard.c
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { EstadoApp1Component } from './estado-app1/estado-app1.component';
-<<<<<<< HEAD
 import { AdminActivComponent } from './admin-activ/admin-activ.component';
 import { NivelesComponent } from './niveles/niveles.component';
-=======
-import { NivelesComponent } from './niveles/niveles.component';
->>>>>>> 046afe8971effaacfa1a844204514ccbcaeab683
 
 ////
 
