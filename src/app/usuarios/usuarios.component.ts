@@ -108,7 +108,7 @@ savee() {
     console.log("despues del rol");
 
 
-    this.usuariosService.create(usuario).subscribe(
+    this.usuariosService.postUsuarios(usuario).subscribe(
       (resp) => {
         this.list();
         this.formUsuarios.reset();
@@ -133,50 +133,20 @@ savee() {
          }
     });
   }
-
   updateee() {
     if (this.formUsuarios.valid) {
       const usuario = this.formUsuarios.value;
       const idRol = usuario.id_rol;
   
-      // Busca el objeto de rol correspondiente en la lista de roles del componente
-      const selectedRole = this.roles.find(role => role.id_rol === idRol);
+      // Crea un objeto Roles con el id_rol seleccionado y un valor de rol temporal ("admin" en este caso)
+      const selectedRole: Roles = new Roles(idRol, "admin");
+
   
       // Asigna el objeto de rol seleccionado al objeto usuario
       usuario.roles = selectedRole;
   
-      // Obtiene el ID del usuario que se está actualizando (puede variar según tu implementación)
+      // Obtiene el ID del usuario que se está actualizando
       const userId = this.formUsuarios.controls['id_usuario'].value;
-  
-      // Realiza el update llamando al servicio correspondiente
-      this.usuariosService.updateUsuario(userId, usuario).subscribe(
-        (resp) => {
-          this.list();
-          this.formUsuarios.reset();
-          Swal.fire('Usuario Actualizado', 'Usuario actualizado con éxito', 'success');
-        },
-        (error) => {
-          console.log(error);
-          Swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
-        }
-      );
-    }else {
-      Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
-    }
-  }
-  ////////////////////////////////////////
-  update() {
-    if (this.formUsuarios.valid) {
-      const usuario = {
-        id_usuario: this.formUsuarios.controls['id_usuario'].value,
-        usu_nombre: this.formUsuarios.controls['usu_nombre'].value,
-        correo: this.formUsuarios.controls['correo'].value,
-        usu_nivelacademico: this.formUsuarios.controls['usu_nivelacademico'].value,
-        id_rol: this.formUsuarios.controls['id_rol'].value
-      };
-  
-      // Obtiene el ID del usuario que se está actualizando (puede variar según tu implementación)
-      const userId = usuario.id_usuario;
   
       // Realiza el update llamando al servicio correspondiente
       this.usuariosService.updateUsuario(userId, usuario).subscribe(
@@ -195,6 +165,7 @@ savee() {
     }
   }
   
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   delete(id: any){
     this.usuariosService.EliminarUsuarios(id).subscribe(resp=>{
@@ -250,7 +221,7 @@ savee() {
 
     this.formUsuarios.controls['correo'].setValue(item.correo);
 
-    this.formUsuarios.controls['usu_correo'].setValue(item.correo);
+  
 
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado

@@ -6,14 +6,10 @@ export class Usuarios{
     usu_nombre:String="";
     usu_contra:String="";
     correo:String="";
-
-    
-  
-    usu_nivelacademico="";
+    usu_nivelacademico:String="";
     roles: Roles; 
     
-    jugador?: Jugador;
-  usuarios: any;
+  
     Usuarios(){}
 
     constructor() {

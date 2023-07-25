@@ -37,10 +37,7 @@
         
 
 
-        <th>Id</th>
-        <th>Enlaces</th>
-        <th>PDFS</th>
-        <th>Imágenes</th>
+      
 
       </tr>
     </thead>
@@ -95,14 +92,7 @@
       <div class="modal-body">
           <form [formGroup]="formRecursos"  enctype="multipart/form-data">
               
-              <div class="mb-3 row">
-
-
-                  <label class="col-sm-2 col-form-label">Id</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="id_recurso">
-                  </div>
-              </div>
+              
               <div class="mb-3 row">
 
                   <label class="col-sm-2 col-form-label">Enlaces</label>
@@ -140,16 +130,6 @@
 
 
               
-
-
-              
-
-            <div class="mb-3 row">
-                <label class="col-sm-2 col-form-label">Imágenes</label>
-                <div class="col-sm-10">
-                    <input type="file" #fileInput class="form-control-file" formControlName="rec_imagenes">
-                </div>
-            </div>
 
             
             </form>
