@@ -205,31 +205,31 @@ buscarUsuarioPorCodigo() {
   }
 
   savee(): void {
-    // Verificar si el formulario es válido
-    if (this.formRecursos.valid) {
-      // Asignar los valores del formulario al objeto recurso
-      this.recurso.rec_nombre = this.formRecursos.get('rec_nombre')?.value;
-      this.recurso.rec_enlaces = this.formRecursos.get('rec_enlaces')?.value;
-  
-      // Llamar al servicio para guardar el recurso en el servidor
-      this.recursosService.postRecursos(this.recurso).subscribe(
-        recurso => {
-          // Actualizar la lista de recursos con el nuevo recurso guardado
-          this.recursos.push(recurso);
-          this.formRecursos.reset();
-          Swal.fire('Recurso Guardado', `Recurso guardado con éxito`, 'success');
-        },
-        error => {
-          console.error('Error al guardar el recurso:', error);
-          Swal.fire('Error', 'Hubo un problema al guardar el recurso', 'error');
-        }
-      );
-    } else {
-      // Si el formulario no es válido, muestra un mensaje de error
-      Swal.fire('Formulario no válido', 'Por favor, verifica los campos del formulario', 'warning');
-    }
+  // Verificar si el formulario es válido
+  if (this.formRecursos.valid) {
+    // Asignar los valores del formulario al objeto recurso
+    this.recurso.rec_nombre = this.formRecursos.get('rec_nombre')?.value;
+    this.recurso.rec_enlaces = this.formRecursos.get('rec_enlaces')?.value;
+
+    // Llamar al servicio para guardar el recurso en el servidor
+    this.recursosService.postRecursos(this.recurso).subscribe(
+      recurso => {
+        // Actualizar la lista de recursos con el nuevo recurso guardado
+        this.recursos.push(recurso);
+        this.formRecursos.reset();
+        Swal.fire('Recurso Guardado', `Recurso guardado con éxito`, 'success');
+      },
+      error => {
+        console.error('Error al guardar el recurso:', error);
+        Swal.fire('Error', 'Hubo un problema al guardar el recurso', 'error');
+      }
+    );
+  } else {
+    // Si el formulario no es válido, muestra un mensaje de error
+    Swal.fire('Formulario no válido', 'Por favor, verifica los campos del formulario', 'warning');
   }
-  
+}
+
 
   ///////////////////////////////////imagen
   seleccionarFoto(event: any){

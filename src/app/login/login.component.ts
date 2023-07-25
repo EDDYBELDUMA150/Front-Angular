@@ -107,8 +107,8 @@ login(modeloUsu: Usuarios) {
   public get f():any {
      return this.myForm.controls; 
     }  
-<<<<<<< HEAD
+
   } 
-=======
-  }
->>>>>>> 7ee70f0f74300ebc73538b7277f9cdd5c6fa080d
+
+  
+

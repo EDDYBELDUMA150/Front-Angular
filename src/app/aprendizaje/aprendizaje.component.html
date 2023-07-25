@@ -1,5 +1,5 @@
 
-<h1 style="color: rgb(78, 21, 119);">Administrar Tipo de Aprendizaje</h1>
+<h1 style="color: rgb(78, 21, 119);">ADMINISTRAR TIPO DE APRENDIZAJE</h1>
 <div class="col-md-12 p-2">
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="fa fa-save"></i> Nuevo Aprendizaje
@@ -7,9 +7,9 @@
   <table class="table mt-2 table-bordered">
     <thead class="table-primary">
       <tr>
-        <th>Id</th>
-        <th>Nombre Aprendizaje</th>
-        <th>Progreso</th>
+        <th>CÓDIGO</th>
+        <th>NOMBRE APRENDIZAJE</th>
+        <th>PROGRESO</th>
       </tr>
     </thead>
     <tbody>
@@ -23,7 +23,7 @@
             <i class="fa fa-pencil"></i>
           </button>
           &nbsp;
-          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delete(item.id_tipo_apren)">
+          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="deletee(item.id_tipo_apren)">
             <i class="fa fa-trash"></i>
           </button>
         </td>
@@ -59,22 +59,17 @@
       </div>
       <div class="modal-body">
           <form [formGroup]="formAprendizaje">
-              <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Id</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="id_tipo_apren">
-                  </div>
-              </div>
+              
               <div class="mb-3 row">
                   <label class="col-sm-2 col-form-label">Nombre Aprendizaje</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="tapr_nombre">
+                    <input type="text" class="form-control" formControlName="tapr_nombre" required>
                   </div>
               </div>
               <div class="mb-3 row">
                   <label class="col-sm-2 col-form-label">Progreso</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="tapr_progreso">
+                    <input type="text" class="form-control" formControlName="tapr_progreso" required>
                   </div>
               </div>
              
