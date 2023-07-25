@@ -126,6 +126,36 @@ savee() {
   this.formUsuarios.get('usu_contra')?.enable();
 }
 
+editar() {
+  if (this.formUsuarios.valid) {
+    const usuario = this.formUsuarios.value;
+    //console.log(" id de rol: "+usuario.id_rol);
+    const idRol = usuario.id_rol; // Obtén el id_rol del formulario
+
+
+    // Asigna el id_rol al objeto usuario
+
+   
+
+
+
+    this.usuariosService.ModificarUser(usuario).subscribe(
+      (resp) => {
+        this.list();
+        this.formUsuarios.reset();
+        Swal.fire('Usuario Registrado', 'Usuario registrado con éxito', 'success');
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error', 'Ocurrió un error al registrar el usuario', 'error');
+      }
+    );
+  }else {
+    Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
+    this.formUsuarios.markAllAsTouched();
+  }
+}
+
   list(){
     this.usuariosService.ListarUsuarios().subscribe(resp=>{
          if(resp){
@@ -133,11 +163,17 @@ savee() {
          }
     });
   }
-  updateee() {
+
+ 
+
+
+  update() {
+
     if (this.formUsuarios.valid) {
       const usuario = this.formUsuarios.value;
       const idRol = usuario.id_rol;
   
+
       // Crea un objeto Roles con el id_rol seleccionado y un valor de rol temporal ("admin" en este caso)
       const selectedRole: Roles = new Roles(idRol, "admin");
 
@@ -151,11 +187,19 @@ savee() {
       // Realiza el update llamando al servicio correspondiente
       this.usuariosService.updateUsuario(userId, usuario).subscribe(
         (resp) => {
+
+      // ... Rest of the code ...
+  
+    
+
           this.list();
           this.formUsuarios.reset();
           Swal.fire('Usuario Actualizado', 'Usuario actualizado con éxito', 'success');
         },
         (error) => {
+
+          // Error handling
+
           console.log(error);
           Swal.fire('Error', 'Ocurrió un error al actualizar el usuario', 'error');
         }
@@ -164,17 +208,11 @@ savee() {
       Swal.fire('Campos Incompletos', 'Por favor, completa todos los campos obligatorios', 'warning');
     }
   }
+ 
   
   //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  delete(id: any){
-    this.usuariosService.EliminarUsuarios(id).subscribe(resp=>{
-      if(resp){
-        this.list();
-        
-      }
-  });
-  }
+
 
   eliminarUsuario(id: any) {
     Swal.fire({
@@ -218,10 +256,10 @@ savee() {
     this.formUsuarios.controls['id_usuario'].setValue(item.id_usuario);
     this.formUsuarios.controls['usu_nombre'].setValue(item.usu_nombre);
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
-
     this.formUsuarios.controls['correo'].setValue(item.correo);
 
   
+
 
     this.formUsuarios.controls['usu_nivelacademico'].setValue(item.usu_nivelacademico);
     this.formUsuarios.controls['id_rol'].setValue(item.roles.id_rol); // Asignar el valor del ID del rol seleccionado

@@ -66,13 +66,31 @@ export class UsuariosService {
   }
 
 
+
   ////////////////////////////////////////
   updateUsuario(userId: number, usuario: any): Observable<any> {
     return this.http.put<any>(`${this.UrlListar}/update/${userId}`, usuario).pipe(
       map(response => response as Usuarios[])
-    );
+      );
+    }
+
+  
+  ModificarUsuarios(request:any):Observable<any>{
+    return this.http.post<any>(this.UrlListar+'/update/', request).pipe(
+      map(response => response as Usuarios[])
+    )
+
   }
 
+  
+
+  
+  ModificarUser(request: any): Observable<any> {
+    const id = request.id_usuario;
+    return this.http.put<any>(`${this.UrlListar}/update2/${id}`, request).pipe(
+      map(response => response as Usuarios[])
+    );
+  }
 
 
 
