@@ -39,15 +39,21 @@ export class NivelesComponent {
      });
    }
  
-   save(){
-     this.aprendizajeService.postAprendizaje(this.formAprendizaje.value).subscribe(resp=>{
-         if(resp){
-           this.list();
-           this.formAprendizaje.reset();
-         }
-     });
-   }
- 
+   save() {
+    this.aprendizajeService.postAprendizaje(this.formAprendizaje.value).subscribe(
+      (resp) => {
+        if (resp) {
+          this.list();
+          this.formAprendizaje.reset();
+          Swal.fire('Guardado', 'Aprendizaje guardado con éxito', 'success');
+        }
+      },
+      (error) => {
+        console.error('Error al guardar el aprendizaje:', error);
+        Swal.fire('Error', 'Hubo un problema al guardar el aprendizaje', 'error');
+      }
+    );
+  }
    update() {
     const id = this.selectedItemId;
     const request = {
@@ -63,14 +69,35 @@ export class NivelesComponent {
     });
   }
   
-   delete(id: any){
-     this.aprendizajeService.EliminarAprendizaje(id).subscribe(resp=>{
-       if(resp){
-         this.list();
-         
-       }
-   });
-   }
+  delete(id: any) {
+    Swal.fire({
+      title: '¿Estás seguro de eliminar este aprendizaje?',
+      text: 'No podrás revertirlo',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#4361ee',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.aprendizajeService.EliminarAprendizaje(id).subscribe(
+          (resp) => {
+            if (resp) {
+              this.list();
+              this.formAprendizaje.reset();
+              Swal.fire('Eliminado', 'El aprendizaje ha sido eliminado', 'success');
+            }
+          },
+          (error) => {
+            console.error('Error al eliminar el aprendizaje:', error);
+            Swal.fire('Error', 'Hubo un problema al eliminar el aprendizaje', 'error');
+          }
+        );
+      }
+    });
+  }
  
    newAprendizaje(){
      this.isupdate=false;

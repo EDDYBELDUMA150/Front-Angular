@@ -9,8 +9,7 @@ export class Usuarios{
     usu_nivelacademico:String="";
     roles: Roles; 
     jugador?: Jugador;
-     usuarios: any;
-  
+    usuarios: any;
     Usuarios(){}
 
     constructor() {

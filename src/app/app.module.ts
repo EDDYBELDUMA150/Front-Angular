@@ -23,7 +23,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { EstadoApp1Component } from './estado-app1/estado-app1.component';
-
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 @NgModule({
@@ -60,7 +60,10 @@ import { EstadoApp1Component } from './estado-app1/estado-app1.component';
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgApexchartsModule 
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

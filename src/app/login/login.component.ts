@@ -45,37 +45,54 @@ export class LoginComponent {
   login() {
     const correo = this.myForm.get('email')?.value;
     const usu_contra = this.myForm.get('password')?.value;
-    if (correo && usu_contra) {
-      this.autenticacionService.login(correo, usu_contra).subscribe(
-        (data) => {
-          if (data !== null) {
-            console.log(correo, usu_contra,data.rol);
-             const rol = data.rol;//Nota hay que ver bien como llamamos a los id :()
-            if (rol.id_rol === 1) {
-              Swal.fire(`Inicio de sesión exitoso como administrador`, 'success');
-              this.autenticacionService.setUsuarioLogueado(data);
-              this.router.navigate(['/perfil-admin/scroll']);
-            } else if (rol.id_rol === 2) {
-              Swal.fire(`Inicio de sesión exitoso como jugador`, 'success');
-              this.autenticacionService.setUsuarioLogueado(data);
-              this.router.navigate(['/ventanaj/scroll']);
-            }
-          } else {
-            Swal.fire('Inicio de Sesión Fallido', 'Usuario o contraseña incorrectos', 'error');
-          }
-        },
-        (error) => {
-          console.error(error);
-          Swal.fire('Inicio de Sesión Fallido', 'Error en el servidor', 'error');
-        }
-      );
-    } else {
-      Swal.fire('Inicio de Sesión Fallido', 'Ingrese los datos', 'warning');
-    }
-  }
   
+    if (!correo || !usu_contra) {
+      Swal.fire('Inicio de Sesión Fallido', 'Ingrese los datos', 'warning');
+      return;
+    }
+  
+    this.autenticacionService.login(correo, usu_contra).subscribe(
+      (data) => {
+        if (data !== null) {
+          console.log(correo, usu_contra, data.rol);
+          const rol = data.rol;
+  
+          if (rol.id_rol === 1) {
+            Swal.fire('Inicio de sesión exitoso como administrador', 'success');
+            this.autenticacionService.setUsuarioLogueado(data);
+            this.router.navigate(['/perfil-admin/scroll']);
+          } else if (rol.id_rol === 2) {
+            Swal.fire('Inicio de sesión exitoso como jugador', 'success');
+            this.autenticacionService.setUsuarioLogueado(data);
+            this.router.navigate(['/ventanaj/scroll']);
+          } else {
+            Swal.fire('Inicio de Sesión Fallido', 'Rol desconocido', 'error');
+          }
+        } else {
+          Swal.fire('Inicio de Sesión Fallido', 'Usuario o contraseña incorrectos', 'error');
+        }
+      },
+      (error) => {
+        console.error(error);
+        if (error.status === 401) {
+          Swal.fire('Inicio de Sesión Fallido', 'Usuario o contraseña incorrectos', 'error');
+        } else if (error.status === 404) {
+          Swal.fire('Jugador Inactivo', 'No tienes interacciones con la app móvil', 'error');
+        } else {
+          Swal.fire('Inicio de Sesión Fallido', 'El jugador no tine interacciones con la APP', 'error');
+        }
+      }
+    );
+  }
   public get f():any {
-    return this.myForm.controls; 
-   }  
 
-}
+     return this.myForm.controls; 
+    }  
+
+  } 
+
+  
+
+
+ 
+

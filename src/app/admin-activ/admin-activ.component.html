@@ -1,5 +1,5 @@
 
-<h1 style="color: rgb(78, 21, 119);">Administrar Actividades</h1>
+<h1 style="color: rgb(78, 21, 119);">ADMINISTRAR ACTIVIDADES</h1>
 <div class="col-md-12 p-2">
   <div class="d-flex align-items-center">
     <div class="flex-grow-1">
@@ -21,9 +21,9 @@
   <table class="table mt-2 table-bordered" style="margin: rigth 0; ">
     <thead class="table-primary">
       <tr>
-        <th>CODIGO</th>
+        <th>CÓDIGO</th>
         <th>ACTIVIDAD</th>
-        <th>DESCRIPCION</th>
+        <th>DESCRIPCIÓN</th>
         <th>DIFICULTAD</th>
         <th>PUNTAJE MAX</th>
         <th>PUNTAJE MIN</th>
@@ -43,17 +43,11 @@
         <td>{{item.act_puntaje_min}}</td>
         <td>{{item.act_puntaje_alcanzado}}</td>
         <td>{{item.act_estado}}</td>
-        <td>{{item.aprendizaje.id_tipo_apren}}</td>
+        <td>{{item.aprendizaje?.tapr_nombre}}</td>
        
         
         <td>
-          <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
-            <i class="fa fa-pencil"></i>
-          </button>
-          &nbsp;
-          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delete(item.id_activ)">
-            <i class="fa fa-trash"></i>
-          </button>
+         
         </td>
       </tr>
     </tbody>

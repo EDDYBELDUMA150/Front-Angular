@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EstadoApp1Component } from './estado-app1.component';
 
 describe('EstadoApp1Component', () => {

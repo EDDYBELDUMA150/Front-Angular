@@ -1,4 +1,4 @@
-<h1 style="color: rgb(78, 21, 119);">Administrar Tipo de Aprendizaje</h1>
+<h1 style="color: rgb(78, 21, 119);">Administrar niveles de actividades</h1>
 <div class="col-md-12 p-2">
   <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
     <i class="fa fa-save"></i> Nuevo Aprendizaje
@@ -6,8 +6,8 @@
   <table class="table mt-2 table-bordered">
     <thead class="table-primary">
       <tr>
-        <th>ID Nivel</th>
-        <th>Numero Nivel</th>
+        <th>CÓDIGO</th>
+        <th>NÚMERO DE NIVEL</th>
        
       </tr>
     </thead>
@@ -17,7 +17,7 @@
         <td>{{item.nv_numero_nivel}}</td>
         
        
-        <td> Opciones
+        <td> 
           <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
             <i class="fa fa-pencil"></i>
           </button>
@@ -60,7 +60,7 @@
           <form [formGroup]="formAprendizaje">
               
               <div class="mb-3 row">
-                  <label class="col-sm-2 col-form-label">Numero Nivel</label>
+                  <label class="col-sm-2 col-form-label">Número Nivel</label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" formControlName="nv_numero_nivel">
                   </div>

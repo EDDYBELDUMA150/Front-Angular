@@ -23,7 +23,7 @@ export class UsuariosComponent {
    ///////////////////////////
   roles: Roles[] = [];
 /////////////////////////////////////////////////DATOS QUEMADOS PARA NIVEL ACADEMICO
-nivelesAcademicos: string[] = ['Primaria', 'Secundaria', 'Bachillerato', 'Universidad'];
+nivelesAcademicos: string[] = ['1° - 3° año de Educación', '4° - 6° año de Educación', '7° - 9° año de Educación', 'Sin especificar'];
 
 /////////////////////////////////////////////////////////
 buscarTexto: string = '';
