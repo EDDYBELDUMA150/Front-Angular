@@ -1,4 +1,22 @@
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
+  
+.custom-datepicker {
+  
+    position: absolute;
+    z-index: 9999;
+  }
 
 
+/* tu-componente.component.css */
+form {
+    position: relative; /* O cualquier otra posición que funcione con tu diseño */
+  }
+  
+
+  .custom-datepicker {
+    /* Ajustar la posición a la derecha y agregar un desplazamiento para mejorar la apariencia */
+    right: 0;
+    top: 100%;
+    transform: translateX(calc(100% + 5px));
+  }

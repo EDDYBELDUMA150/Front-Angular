@@ -1,20 +1,45 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef, ViewChild ,  ViewEncapsulation } from '@angular/core';
 import { Usuarios } from './Usuarios';
 import { UsuariosService } from './usuarios.service';
 import {  FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Roles } from './Roles';
+
 @Component({
 
   
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  styleUrls: ['./usuarios.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class UsuariosComponent {
   
+ 
+
+
+
+
 
   constructor(private usuariosService:UsuariosService){}
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
   usuarios: Usuarios[] = []
 
    /////////////////////////////////////
@@ -70,6 +95,7 @@ buscarUsuarioPorCodigo() {
     this.formUsuarios= new FormGroup({
       id_usuario: new FormControl(''),
       usu_nombre: new FormControl(''),
+      usu_fecha_nacimiento: new FormControl('', [Validators.required, Validators.pattern(/^\d{4}-\d{2}-\d{2}$/)]),
       usu_contra: new FormControl(''),
       correo: new FormControl(''),
       usu_nivelacademico: new FormControl(''),
@@ -255,6 +281,7 @@ editar() {
     this.isupdate = true;
     this.formUsuarios.controls['id_usuario'].setValue(item.id_usuario);
     this.formUsuarios.controls['usu_nombre'].setValue(item.usu_nombre);
+    this.formUsuarios.controls['usu_fecha_nacimiento'].setValue(item.usu_fecha_nacimiento);
     this.formUsuarios.controls['usu_contra'].setValue(item.usu_contra);
     this.formUsuarios.controls['correo'].setValue(item.correo);
 

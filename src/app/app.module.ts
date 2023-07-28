@@ -23,6 +23,13 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { VentanaJugadorComponent } from './ventana-jugador/ventana-jugador.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { EstadoApp1Component } from './estado-app1/estado-app1.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 
 
@@ -60,9 +67,19 @@ import { EstadoApp1Component } from './estado-app1/estado-app1.component';
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatIconModule, 
+    
+   OverlayModule 
+    
+    
+  
   ],
-  providers: [],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -24,6 +24,7 @@ export class AprendizajeComponent {
     this.formAprendizaje= new FormGroup({
       id_tipo_apren: new FormControl(''),
        tapr_nombre: new FormControl('', Validators.required),
+       tapr_cantidad: new FormControl('', Validators.required),
        tapr_progreso: new FormControl('', Validators.required)
        
      });
@@ -133,7 +134,10 @@ export class AprendizajeComponent {
      this.isupdate = true;
      this.formAprendizaje.controls['id_tipo_apren'].setValue(item.id_tipo_apren);
      this.formAprendizaje.controls['tapr_nombre'].setValue(item.tapr_nombre);
+     this.formAprendizaje.controls['tapr_cantidad'].setValue(item.tapr_cantidad);
      this.formAprendizaje.controls['tapr_progreso'].setValue(item.tapr_progreso);
+
+     this.formAprendizaje.get('tapr_progreso')?.disable();
     
 
     

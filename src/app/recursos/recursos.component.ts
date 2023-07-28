@@ -66,6 +66,7 @@ buscarUsuarioPorCodigo() {
     this.formRecursos = new FormGroup({
       id_recurso: new FormControl(''),
       rec_nombre: new FormControl('', Validators.required),
+      rec_lec: new FormControl(''),
       rec_enlaces: new FormControl('', [Validators.pattern(/^https?:\/\/\S+$/i)]),
       rec_img: new FormControl('')
       
@@ -121,8 +122,8 @@ buscarUsuarioPorCodigo() {
           (error) => {
             console.error('Error al eliminar el recurso:', error);
             Swal.fire(
-              'Error',
-              'Hubo un problema al eliminar el recurso',
+              'No se puede eliminar este Recurso',
+              'Recurso se esta ocupando',
               'error'
             )
           }
@@ -134,34 +135,7 @@ buscarUsuarioPorCodigo() {
 
 
 
-  delete(id: any) {
-    Swal.fire({
-      title: '¿Estas seguro de eliminar este usuario?',
-      text: "No podras revertirlo!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#4361ee',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar',
-      cancelButtonText: 'Cancelar',
-      buttonsStyling: true
-    }).then((result) => {
-      if (result.value) {
-        this.recursosService.EliminarRecursos(id).subscribe(
-          usuarios => {
-            this.recursosService.getRecursos().subscribe(
-              response => this.recursos = response
-            )
-            Swal.fire(
-              'Eliminado!',
-              'El usuario ha sido eliminado'
-            );
-            this.showForm = false; // Aquí ocultamos el formulario después de eliminar
-          });
-      }
-    })
-  }
-  
+
 
 
 
@@ -176,39 +150,20 @@ buscarUsuarioPorCodigo() {
     this.isupdate = true;
     this.formRecursos.controls['id_recurso'].setValue(item.id_recurso);
     this.formRecursos.controls['rec_nombre'].setValue(item.rec_nombre);
+    this.formRecursos.controls['rec_lec'].setValue(item.rec_lec);
     this.formRecursos.controls['rec_enlaces'].setValue(item.rec_enlaces);
     this.formRecursos.controls['rec_img'].setValue(item.rec_img);
    
   }
 
-  save(): void {
-
-    this.recurso.rec_nombre = this.formRecursos.get('rec_nombre')?.value;
-    this.recurso.rec_enlaces = this.formRecursos.get('rec_enlaces')?.value;
-   
-   
-    this.recursosService.postRecursos(this.recurso).subscribe(
-    recurso => {
-      this.list();
-      this.formRecursos.reset();
-
-      Swal.fire('Recurso Guardado', `Recurso  guardado con exito`, 'success')
-    },
-    (error) => {
-      console.log(error);
-      Swal.fire('Error', 'Ocurrió un error al registrar el RECURSO', 'error');
-    }
-    );
-
-    
-
-  }
 
   savee(): void {
   // Verificar si el formulario es válido
   if (this.formRecursos.valid) {
     // Asignar los valores del formulario al objeto recurso
+
     this.recurso.rec_nombre = this.formRecursos.get('rec_nombre')?.value;
+    this.recurso.rec_lec = this.formRecursos.get('rec_lec')?.value;
     this.recurso.rec_enlaces = this.formRecursos.get('rec_enlaces')?.value;
 
     // Llamar al servicio para guardar el recurso en el servidor

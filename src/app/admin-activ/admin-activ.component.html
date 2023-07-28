@@ -15,9 +15,6 @@
   
   </div>
 
-
-
-
   <table class="table mt-2 table-bordered" style="margin: rigth 0; ">
     <thead class="table-primary">
       <tr>
@@ -29,7 +26,7 @@
         <th>PUNTAJE MIN</th>
         <th>PUNTAJE ALCANZADO</th>
         <th>ESTADO</th>
-        <th>TIPO DE APRENDIZAJE</th>
+       
         <th>RECURSOS</th>
       </tr>
     </thead>
@@ -43,38 +40,13 @@
         <td>{{item.act_puntaje_min}}</td>
         <td>{{item.act_puntaje_alcanzado}}</td>
         <td>{{item.act_estado}}</td>
-        <td>{{item.aprendizaje.id_tipo_apren}}</td>
        
-        
-        <td>
-          <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectItem(item)">
-            <i class="fa fa-pencil"></i>
-          </button>
-          &nbsp;
-          <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="delete(item.id_activ)">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
+        <td>{{item.recursos?.rec_nombre}}</td>
+            
       </tr>
     </tbody>
   </table>
 </div>
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 <!-- TODO: Modals -->
 
