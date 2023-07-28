@@ -1,70 +1,88 @@
 <div class="container-fluid">
     <div class="page-header">
-      <h1 class="text-titles">ESTADO APP</h1>
+      <h1 class="text-titles" style="color: rgb(78, 21, 119);">ESTADO DE REGISTROS DE LA APP</h1>
     </div>
 </div>
-<div class="full-box text-center" style="padding: 30px 10px;">
-    <article class="full-box tile">
-        <div class="full-box tile-title text-center text-titles text-uppercase">
-            Administradores Registrados
-        </div>
-        <div class="full-box tile-icon text-center">
-            <i class="zmdi zmdi-account"></i>
-        </div>
-        <div class="full-box tile-number text-titles">
-            <p class="full-box">{{countAdministradores}}</p>
-            <small>Register</small>
-        </div>
-    </article>
-    <article class="full-box tile">
-        <div class="full-box tile-title text-center text-titles text-uppercase">
-            Jugadores Registrados
-        </div>
-        <div class="full-box tile-icon text-center">
-            <i class="zmdi zmdi-male-alt"></i>
-        </div>
-        <div class="full-box tile-number text-titles">
-            <p class="full-box">{{countJugadores}}</p>
-            <small>Register</small>
-        </div>
-    </article>
-    <article class="full-box tile">
-        <div class="full-box tile-title text-center text-titles text-uppercase">
-            APRENDIZAJE REGISTRADOS
-        </div>
-        <div class="full-box tile-icon text-center">
-            <i class="zmdi zmdi-face"></i>
-        </div>
-        <div class="full-box tile-number text-titles">
-            <p class="full-box">{{ countAprendizajes }}</p>
-            <small>Register</small>
-        </div>
-    </article>
-    <article class="full-box tile">
-        <div class="full-box tile-title text-center text-titles text-uppercase">
-            ACTIVIDADES REGISTRADAS
-        </div>
-        <div class="full-box tile-icon text-center">
-            <i class="zmdi zmdi-male-female"></i>
-        </div>
-        <div class="full-box tile-number text-titles">
-            <p class="full-box">{{ countActividades }}</p>
-            <small>Register</small>
-        </div>
-    </article>
-    <article class="full-box tile">
-        <div class="full-box tile-title text-center text-titles text-uppercase">
-            ACTIVIDADES REGISTRADAS
-        </div>
-        <div class="full-box tile-icon text-center">
-            <i class="zmdi zmdi-male-female"></i>
-        </div>
-        <div class="full-box tile-number text-titles">
-            <p class="full-box">{{ countActividades }}</p>
-            <small>Register</small>
-        </div>
-    </article>
+<div class="cuadro">
+    <div class="full-box text-center" style="padding: 30px 10px;">
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Administradores Registrados
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">{{countAdministradores}}</p>
+                <small>Register</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                Jugadores Registrados
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="zmdi zmdi-male-alt"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">{{countJugadores}}</p>
+                <small>Register</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                APRENDIZAJE REGISTRADOS
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="zmdi zmdi-face"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">{{ countAprendizajes }}</p>
+                <small>Register</small>
+            </div>
+        </article>
+        <article class="full-box tile">
+            <div class="full-box tile-title text-center text-titles text-uppercase">
+                ACTIVIDADES REGISTRADAS
+            </div>
+            <div class="full-box tile-icon text-center">
+                <i class="zmdi zmdi-male-female"></i>
+            </div>
+            <div class="full-box tile-number text-titles">
+                <p class="full-box">{{ countActividades }}</p>
+                <small>Register</small>
+            </div>
+        </article>
+    </div>
 </div>
+<div class="page-header">
+    <h1 class="text-titles" style="color: rgb(78, 21, 119);">NUMERO DE JUGADORES ACTIVOS EN LA APP MOVIL</h1>
+ </div>
+ <div class="cuadro">
+    <div class="row">
+        <div class="col-lg-6"></div>
+             <h2>PIE CHART</h2>
+             <div>
+                <canvas id="myChart"></canvas>
+              </div>
+    </div>
+    <div style="display: block">
+        <div class="chart-wrapper">
+            <div class="chart-wrapper">
+                <div id="chart"></div>
+       
+
+            </div>
+        </div>
+   
+ </div>
+
+ 
+ </div>
+ <h1 class="text-titles" style="color: rgb(78, 21, 119);">Gracias</h1>
+ 
+
+
 
 
 

@@ -20,6 +20,8 @@ import { AdminActivComponent } from './admin-activ/admin-activ.component';
 
 
 
+
+
 const routes: Routes = [
   { path: '', redirectTo: 'home',pathMatch: 'full'},
   

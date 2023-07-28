@@ -9,9 +9,6 @@ export class Usuarios{
     usu_nivelacademico:String="";
     usu_fecha_nacimiento?: string = " ";
     roles: Roles; 
-    
-
- 
 
     Usuarios(){}
 
